@@ -479,6 +479,56 @@ a {
     white-space: nowrap;
 }
 
+.streak-stats {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1px;
+
+    background: var(--line);
+
+    border: 1px solid var(--line);
+
+    margin-top: 6px;
+}
+
+.streak-stat {
+    background: var(--paper);
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.streak-value {
+    font-family: 'Crimson Pro', Georgia, serif;
+
+    font-size: clamp(30px, 4.5vw, 42px);
+
+    color: var(--purple);
+
+    line-height: 1;
+}
+
+.streak-unit {
+    font-size: 12px;
+
+    color: var(--muted);
+
+    margin-left: 4px;
+}
+
+.streak-label {
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
 .heatmap-wrap {
     display: flex;
 
@@ -2345,6 +2395,236 @@ a {
     
 
     </div>
+
+</div>
+
+
+<div
+    class="panel"
+    style="margin-top:18px;"
+>
+
+    <h3 class="panel-title">
+        Streaks
+    </h3>
+
+    <p class="panel-caption">
+        連続投稿の記録（週単位）
+    </p>
+
+    <div class="streak-stats">
+
+        <div class="streak-stat">
+            <div class="streak-value">
+                94
+                <span class="streak-unit">週</span>
+            </div>
+            <div class="streak-label">
+                最長連続投稿週
+            </div>
+        </div>
+
+        <div class="streak-stat">
+            <div class="streak-value">
+                94
+                <span class="streak-unit">週</span>
+            </div>
+            <div class="streak-label">
+                現在の連続投稿週
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    class="panel"
+    style="margin-top:18px;"
+>
+
+    <h3 class="panel-title">
+        Weekly pace
+    </h3>
+
+    <p class="panel-caption">
+        直近12週間の週間投稿本数
+    </p>
+
+    
+    <div class="bar-chart">
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週6/8〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                6/8
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">1</div>
+
+            <div
+                class="bar"
+                style="height:60.0px"
+                title="週6/15〜：1本"
+            ></div>
+
+            <div class="bar-label">
+                6/15
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週6/22〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                6/22
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週6/29〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                6/29
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">1</div>
+
+            <div
+                class="bar"
+                style="height:60.0px"
+                title="週7/6〜：1本"
+            ></div>
+
+            <div class="bar-label">
+                7/6
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週7/13〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                7/13
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週7/20〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                7/20
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週7/27〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                7/27
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週8/3〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                8/3
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週8/10〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                8/10
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">2</div>
+
+            <div
+                class="bar"
+                style="height:120.0px"
+                title="週8/17〜：2本"
+            ></div>
+
+            <div class="bar-label">
+                8/17
+            </div>
+        </div>
+        
+        <div class="bar-column">
+            <div class="bar-value">1</div>
+
+            <div
+                class="bar"
+                style="height:60.0px"
+                title="週8/24〜：1本"
+            ></div>
+
+            <div class="bar-label">
+                8/24
+            </div>
+        </div>
+        
+    </div>
+    
 
 </div>
 
