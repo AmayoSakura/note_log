@@ -27,17 +27,17 @@ SITE_URL = "https://amexfuri.work/"
 NOTE_URL = "https://note.com/squallxxx"
 PAGE_TITLE = "NOTE LOG — Squall"
 
-# Squall palette
-BG = "#faf8f9"
-PAPER = "#ffffff"
-INK = "#302b36"
-MUTED = "#817985"
-LIGHT = "#eee9ef"
-PURPLE = "#7058a3"
-PURPLE_LIGHT = "#bbc8e6"
-PINK = "#fdeff2"
-RED = "#c9171e"
-LINE = "#e6e0e6"
+# Squall palette (amexfuri.work セピアトーンに統一)
+BG = "#f4efea"
+PAPER = "#faf7f5"
+INK = "#201812"
+MUTED = "#695444"
+LIGHT = "#ece4db"
+PURPLE = "#73482a"
+PURPLE_LIGHT = "#d9c3ac"
+PINK = "#f0e6db"
+RED = "#8a3a26"
+LINE = "#e0d5c8"
 
 # ------------------------------------------------------------
 # Utility
@@ -706,7 +706,17 @@ content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フ�
 
 >
 
-<meta name="theme-color" content="{BG}"><style>
+<meta name="theme-color" content="{BG}"><link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+><link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+><link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@400;500;600&display=swap"
+><style>
 
 :root {{
     --bg: {BG};
@@ -732,15 +742,17 @@ html {{
 body {{
     margin: 0;
 
+    overflow-x: hidden;
+
     background:
         radial-gradient(
             circle at 85% 5%,
-            rgba(187, 200, 230, 0.18),
+            rgba(217, 195, 172, 0.28),
             transparent 26rem
         ),
         radial-gradient(
             circle at 5% 45%,
-            rgba(253, 239, 242, 0.75),
+            rgba(240, 230, 219, 0.75),
             transparent 28rem
         ),
         var(--bg);
@@ -748,12 +760,13 @@ body {{
     color: var(--ink);
 
     font-family:
+        'Crimson Pro',
+        'Noto Serif JP',
         -apple-system,
         BlinkMacSystemFont,
-        "Noto Sans JP",
         "Yu Gothic",
         "Hiragino Kaku Gothic ProN",
-        sans-serif;
+        serif;
 
     line-height: 1.7;
 }}
@@ -765,6 +778,8 @@ a {{
 .site-shell {{
     width: min(1180px, calc(100% - 40px));
     margin: 0 auto;
+
+    min-width: 0;
 }}
 
 .site-header {{
@@ -850,8 +865,90 @@ a {{
     color: var(--red);
 }}
 
+.tab-nav {{
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-bottom: 40px;
+
+    border-bottom: 1px solid var(--line);
+
+    padding-bottom: 0;
+}}
+
+.tab-button {{
+    appearance: none;
+
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+
+    border-radius: 4px 4px 0 0;
+
+    padding: 11px 16px;
+
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+    margin-bottom: -1px;
+}}
+
+.tab-button:hover {{
+    color: var(--purple);
+}}
+
+.tab-button.is-active {{
+    color: var(--purple);
+
+    background: var(--paper);
+
+    border-color: var(--line);
+    border-bottom: 1px solid var(--paper);
+}}
+
+.tab-panel {{
+    display: none;
+
+    margin: 0 0 40px;
+}}
+
+.tab-panel.is-active {{
+    display: block;
+}}
+
+@media (max-width: 640px) {{
+    .tab-nav {{
+        flex-wrap: nowrap;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+
+        border-bottom: 1px solid var(--line);
+    }}
+
+    .tab-button {{
+        flex: 0 0 auto;
+
+        white-space: nowrap;
+    }}
+}}
+
 .section {{
-    margin: 0 0 86px;
+    margin: 0;
 }}
 
 .section-heading {{
@@ -865,7 +962,7 @@ a {{
 }}
 
 .section-number {{
-    font-family: Georgia, serif;
+    font-family: 'Crimson Pro', Georgia, serif;
 
     color: var(--red);
 
@@ -875,7 +972,7 @@ a {{
 .section-title {{
     margin: 0;
 
-    font-family: Georgia, serif;
+    font-family: 'Crimson Pro', Georgia, serif;
 
     font-size: 28px;
     font-weight: 400;
@@ -923,7 +1020,7 @@ a {{
 }}
 
 .stat-value {{
-    font-family: Georgia, serif;
+    font-family: 'Crimson Pro', Georgia, serif;
 
     font-size: clamp(34px, 5vw, 52px);
 
@@ -958,20 +1055,24 @@ a {{
     grid-template-columns: 1.5fr 1fr;
 
     gap: 18px;
+
+    min-width: 0;
 }}
 
 .panel {{
-    background: rgba(255, 255, 255, 0.78);
+    background: var(--paper);
 
     border: 1px solid var(--line);
 
     padding: 26px;
+
+    min-width: 0;
 }}
 
 .panel-title {{
     margin: 0 0 4px;
 
-    font-family: Georgia, serif;
+    font-family: 'Crimson Pro', Georgia, serif;
 
     font-size: 19px;
     font-weight: 400;
@@ -1015,6 +1116,7 @@ a {{
 
 .bar-chart {{
     height: 210px;
+    max-width: 100%;
 
     display: flex;
 
@@ -1023,8 +1125,9 @@ a {{
     gap: 9px;
 
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 
-    padding: 10px 0 0;
+    padding: 10px 0 4px;
 }}
 
 .bar-column {{
@@ -1177,7 +1280,7 @@ a {{
 }}
 
 .popular-rank {{
-    font-family: Georgia, serif;
+    font-family: 'Crimson Pro', Georgia, serif;
 
     color: var(--red);
 
@@ -1191,7 +1294,7 @@ a {{
 }}
 
 .popular-stats {{
-    font-family: Georgia, serif;
+    font-family: 'Crimson Pro', Georgia, serif;
 
     font-size: 12px;
 
@@ -1300,7 +1403,7 @@ a {{
 .article-date {{
     color: var(--muted);
 
-    font-family: Georgia, serif;
+    font-family: 'Crimson Pro', Georgia, serif;
 
     font-size: 12px;
 }}
@@ -1569,7 +1672,13 @@ a {{
 
 </div>
 
-</header><main><section class="section"><div class="section-heading">
+</header><main><nav class="tab-nav" id="tabNav">
+    <button type="button" class="tab-button" data-tab="overview">01 Overview</button>
+    <button type="button" class="tab-button" data-tab="activity">02 Activity</button>
+    <button type="button" class="tab-button" data-tab="numbers">03 Numbers</button>
+    <button type="button" class="tab-button" data-tab="popular">04 Popular</button>
+    <button type="button" class="tab-button" data-tab="articles">05 Articles</button>
+</nav><section class="section tab-panel" id="tab-overview" data-tab="overview"><div class="section-heading">
 
     <span class="section-number">
         01
@@ -1668,7 +1777,7 @@ a {{
 
 </div>
 
-</section><section class="section"><div class="section-heading">
+</section><section class="section tab-panel" id="tab-activity" data-tab="activity"><div class="section-heading">
 
     <span class="section-number">
         02
@@ -1718,7 +1827,7 @@ a {{
 
 </div>
 
-</section><section class="section"><div class="section-heading">
+</section><section class="section tab-panel" id="tab-numbers" data-tab="numbers"><div class="section-heading">
 
     <span class="section-number">
         03
@@ -1786,7 +1895,7 @@ a {{
 
 </div>
 
-</section><section class="section"><div class="section-heading">
+</section><section class="section tab-panel" id="tab-popular" data-tab="popular"><div class="section-heading">
 
     <span class="section-number">
         04
@@ -1808,9 +1917,10 @@ a {{
 </div>
 
 </section><section
-    class="section"
-    id="articles"
-><div class="section-heading">
+    class="section tab-panel"
+    id="tab-articles"
+    data-tab="articles"
+><div id="articles" class="section-heading">
 
     <span class="section-number">
         05
@@ -1918,6 +2028,67 @@ a {{
 </footer></div><script>
 
 (function() {{
+
+    const tabButtons = Array.from(
+        document.querySelectorAll(".tab-button")
+    );
+
+    const tabPanels = Array.from(
+        document.querySelectorAll(".tab-panel")
+    );
+
+    const validTabs = tabButtons.map(
+        function(btn) {{
+            return btn.dataset.tab;
+        }}
+    );
+
+    function activateTab(tabName, options) {{
+
+        options = options || {{}};
+
+        if (validTabs.indexOf(tabName) === -1) {{
+            tabName = validTabs[0];
+        }}
+
+        tabButtons.forEach(function(btn) {{
+            btn.classList.toggle(
+                "is-active",
+                btn.dataset.tab === tabName
+            );
+        }});
+
+        tabPanels.forEach(function(panel) {{
+            panel.classList.toggle(
+                "is-active",
+                panel.dataset.tab === tabName
+            );
+        }});
+
+        if (!options.skipHash) {{
+            history.replaceState(
+                null,
+                "",
+                "#" + tabName
+            );
+        }}
+
+        if (options.scrollTop) {{
+            window.scrollTo({{ top: 0, behavior: "instant" }});
+        }}
+
+    }}
+
+    tabButtons.forEach(function(btn) {{
+        btn.addEventListener("click", function() {{
+            activateTab(btn.dataset.tab, {{ scrollTop: true }});
+        }});
+    }});
+
+    const initialTab =
+        (location.hash || "").replace("#", "");
+
+    activateTab(initialTab, {{ skipHash: true }});
 
     const search =
         document.getElementById("search");
