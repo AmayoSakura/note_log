@@ -148,7 +148,7 @@ key=lambda x: parse_date(x.get("published_at")) or datetime.min,
 reverse=True
 )
 
-タイトル・数値を正規化
+タイトルと数値を正規化
 
 for note in notes:
 note["title"] = clean_title(note.get("title"))
