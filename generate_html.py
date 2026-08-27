@@ -5,27 +5,18 @@ from pathlib import Path
 from collections import defaultdict
 from datetime import datetime, date, timedelta
 
-============================================================
-
-Squall NOTE LOG
-
-generate_html.py
-
-Required:
-
-note_data.json
-
-Optional:
-
-data/daily_stats.json
-
-data/article_history.json
-
-Output:
-
-index.html
-
-============================================================
+# ============================================================
+# Squall NOTE LOG
+# generate_html.py
+#
+# Required:
+#   note_data.json
+# Optional:
+#   data/daily_stats.json
+#   data/article_history.json
+# Output:
+#   index.html
+# ============================================================
 
 NOTE_DATA_FILE = Path("note_data.json")
 DAILY_STATS_FILE = Path("data/daily_stats.json")
@@ -36,8 +27,7 @@ SITE_URL = "https://amexfuri.work/"
 NOTE_URL = "https://note.com/squallxxx"
 PAGE_TITLE = "NOTE LOG — Squall"
 
-Squall palette
-
+# Squall palette
 BG = "#faf8f9"
 PAPER = "#ffffff"
 INK = "#302b36"
@@ -49,89 +39,94 @@ PINK = "#fdeff2"
 RED = "#c9171e"
 LINE = "#e6e0e6"
 
-------------------------------------------------------------
-
-Utility
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Utility
+# ------------------------------------------------------------
 
 def load_json(path, default):
-if not path.exists():
-return default
+    if not path.exists():
+        return default
 
-try:
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
-except (json.JSONDecodeError, OSError):
-    return default
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return default
+
 
 def esc(value):
-return html.escape(str(value or ""), quote=True)
+    return html.escape(str(value or ""), quote=True)
+
 
 def clean_title(title):
-"""
-Webツール経由で混入する可能性のある
-不要なマーカーを除去。
-"""
-title = str(title or "")
-title = re.sub(r"【.*?】", "", title)
-title = re.sub(r"\s+", " ", title)
-return title.strip()
+    """
+    Webツール経由で混入する可能性のある
+    不要なマーカーを除去。
+    """
+    title = str(title or "")
+    title = re.sub(r"【.*?】", "", title)
+    title = re.sub(r"\s+", " ", title)
+    return title.strip()
+
 
 def parse_date(value):
-if not value:
-return None
+    if not value:
+        return None
 
-try:
-    return datetime.fromisoformat(
-        str(value).replace("Z", "+00:00")
-    )
-except (ValueError, TypeError):
-    return None
+    try:
+        return datetime.fromisoformat(
+            str(value).replace("Z", "+00:00")
+        )
+    except (ValueError, TypeError):
+        return None
+
 
 def date_key(value):
-dt = parse_date(value)
+    dt = parse_date(value)
 
-if dt:
-    return dt.strftime("%Y-%m-%d")
+    if dt:
+        return dt.strftime("%Y-%m-%d")
 
-return str(value or "")[:10]
-
-def format_date(value):
-dt = parse_date(value)
-
-if not dt:
     return str(value or "")[:10]
 
-return f"{dt.year}.{dt.month:02d}.{dt.day:02d}"
+
+def format_date(value):
+    dt = parse_date(value)
+
+    if not dt:
+        return str(value or "")[:10]
+
+    return f"{dt.year}.{dt.month:02d}.{dt.day:02d}"
+
 
 def format_month(value):
-dt = parse_date(value)
+    dt = parse_date(value)
 
-if not dt:
-    return str(value or "")[:7]
+    if not dt:
+        return str(value or "")[:7]
 
-return f"{dt.year}.{dt.month:02d}"
+    return f"{dt.year}.{dt.month:02d}"
+
 
 def note_url(note):
-key = note.get("key")
+    key = note.get("key")
 
-if key:
-    return f"https://note.com/s/{key}"
+    if key:
+        return f"https://note.com/s/{key}"
 
-return NOTE_URL
+    return NOTE_URL
+
 
 def safe_int(value):
-try:
-return int(value or 0)
-except (TypeError, ValueError):
-return 0
+    try:
+        return int(value or 0)
+    except (TypeError, ValueError):
+        return 0
 
-------------------------------------------------------------
 
-Data
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Data
+# ------------------------------------------------------------
 
 note_data = load_json(NOTE_DATA_FILE, {})
 daily_stats = load_json(DAILY_STATS_FILE, [])
@@ -140,586 +135,562 @@ article_history = load_json(ARTICLE_HISTORY_FILE, {})
 creator = note_data.get("creator", {})
 notes = note_data.get("notes", [])
 
-最新順
-
+# 最新順
 notes = sorted(
-notes,
-key=lambda x: parse_date(x.get("published_at")) or datetime.min,
-reverse=True
+    notes,
+    key=lambda x: parse_date(x.get("published_at")) or datetime.min,
+    reverse=True
 )
 
-タイトルと数値を正規化
-
+# タイトルと数値を正規化
 for note in notes:
-note["title"] = clean_title(note.get("title"))
-note["likes"] = safe_int(note.get("likes"))
-note["comments"] = safe_int(note.get("comments"))
+    note["title"] = clean_title(note.get("title"))
+    note["likes"] = safe_int(note.get("likes"))
+    note["comments"] = safe_int(note.get("comments"))
 
 daily_stats = sorted(
-daily_stats,
-key=lambda x: x.get("date", "")
+    daily_stats,
+    key=lambda x: x.get("date", "")
 )
 
-------------------------------------------------------------
-
-Basic statistics
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Basic statistics
+# ------------------------------------------------------------
 
 article_count = len(notes)
 
 total_likes = sum(
-safe_int(note.get("likes"))
-for note in notes
+    safe_int(note.get("likes"))
+    for note in notes
 )
 
 total_comments = sum(
-safe_int(note.get("comments"))
-for note in notes
+    safe_int(note.get("comments"))
+    for note in notes
 )
 
 followers = safe_int(creator.get("followerCount"))
 following = safe_int(creator.get("followingCount"))
 
 average_likes = (
-round(total_likes / article_count, 1)
-if article_count
-else 0
+    round(total_likes / article_count, 1)
+    if article_count
+    else 0
 )
 
 average_comments = (
-round(total_comments / article_count, 1)
-if article_count
-else 0
+    round(total_comments / article_count, 1)
+    if article_count
+    else 0
 )
 
 fetched_at = note_data.get("fetched_at")
 updated_label = format_date(fetched_at)
 
-------------------------------------------------------------
-
-Monthly activity
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Monthly activity
+# ------------------------------------------------------------
 
 monthly_posts = defaultdict(int)
 monthly_likes = defaultdict(int)
 monthly_comments = defaultdict(int)
 
 for note in notes:
-month = format_month(note.get("published_at"))
+    month = format_month(note.get("published_at"))
 
-if month:
-    monthly_posts[month] += 1
-    monthly_likes[month] += safe_int(note.get("likes"))
-    monthly_comments[month] += safe_int(note.get("comments"))
+    if month:
+        monthly_posts[month] += 1
+        monthly_likes[month] += safe_int(note.get("likes"))
+        monthly_comments[month] += safe_int(note.get("comments"))
 
 months = sorted(monthly_posts.keys())
 
-------------------------------------------------------------
-
-Recent activity
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Recent activity
+# ------------------------------------------------------------
 
 recent_30_days_posts = 0
 
 if notes:
-latest_dt = parse_date(notes[0].get("published_at"))
+    latest_dt = parse_date(notes[0].get("published_at"))
 
-if latest_dt:
-    cutoff = latest_dt - timedelta(days=29)
+    if latest_dt:
+        cutoff = latest_dt - timedelta(days=29)
 
-    for note in notes:
-        dt = parse_date(note.get("published_at"))
+        for note in notes:
+            dt = parse_date(note.get("published_at"))
 
-        if dt and dt >= cutoff:
-            recent_30_days_posts += 1
+            if dt and dt >= cutoff:
+                recent_30_days_posts += 1
 
-------------------------------------------------------------
-
-SVG line chart
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# SVG line chart
+# ------------------------------------------------------------
 
 def make_line_chart(
-labels,
-values,
-width=900,
-height=300,
-stroke=PURPLE,
-fill=PURPLE_LIGHT,
-suffix=""
+    labels,
+    values,
+    width=900,
+    height=300,
+    stroke=PURPLE,
+    fill=PURPLE_LIGHT,
+    suffix=""
 ):
-if not values:
-return """
-<div class="empty-chart">
-データがまだありません。
-</div>
-"""
-
-values = [safe_int(v) for v in values]
-
-max_value = max(values)
-min_value = min(values)
-
-if max_value == min_value:
-    max_value += 1
-    min_value = max(0, min_value - 1)
-
-padding_left = 48
-padding_right = 20
-padding_top = 24
-padding_bottom = 40
-
-chart_width = width - padding_left - padding_right
-chart_height = height - padding_top - padding_bottom
-
-points = []
-
-for i, value in enumerate(values):
-    if len(values) == 1:
-        x = padding_left + chart_width / 2
-    else:
-        x = padding_left + (
-            chart_width * i / (len(values) - 1)
-        )
-
-    ratio = (value - min_value) / (max_value - min_value)
-
-    y = (
-        padding_top
-        + chart_height
-        - ratio * chart_height
-    )
-
-    points.append((x, y, value))
-
-point_string = " ".join(
-    f"{x:.1f},{y:.1f}"
-    for x, y, _ in points
-)
-
-area_points = (
-    f"{padding_left},{padding_top + chart_height} "
-    + point_string
-    + f" {points[-1][0]:.1f},{padding_top + chart_height}"
-)
-
-# 横グリッド
-grid = ""
-
-for i in range(5):
-    ratio = i / 4
-    y = padding_top + chart_height * ratio
-
-    value = max_value - (
-        (max_value - min_value) * ratio
-    )
-
-    grid += f"""
-    <line
-        x1="{padding_left}"
-        y1="{y:.1f}"
-        x2="{width - padding_right}"
-        y2="{y:.1f}"
-        class="chart-grid"
-    />
-    <text
-        x="{padding_left - 10}"
-        y="{y + 4:.1f}"
-        class="chart-axis"
-        text-anchor="end"
-    >{int(round(value))}{esc(suffix)}</text>
-    """
-
-# Xラベル
-label_svg = ""
-
-step = max(1, len(labels) // 6)
-
-for i, label in enumerate(labels):
-    if (
-        i == 0
-        or i == len(labels) - 1
-        or i % step == 0
-    ):
-        x = points[i][0]
-
-        label_svg += f"""
-        <text
-            x="{x:.1f}"
-            y="{height - 12}"
-            class="chart-axis"
-            text-anchor="middle"
-        >{esc(label)}</text>
+    if not values:
+        return """
+        <div class="empty-chart">
+            データがまだありません。
+        </div>
         """
 
-circles = ""
+    values = [safe_int(v) for v in values]
 
-for x, y, value in points:
-    circles += f"""
-    <circle
-        cx="{x:.1f}"
-        cy="{y:.1f}"
-        r="3.5"
-        fill="{stroke}"
+    max_value = max(values)
+    min_value = min(values)
+
+    if max_value == min_value:
+        max_value += 1
+        min_value = max(0, min_value - 1)
+
+    padding_left = 48
+    padding_right = 20
+    padding_top = 24
+    padding_bottom = 40
+
+    chart_width = width - padding_left - padding_right
+    chart_height = height - padding_top - padding_bottom
+
+    points = []
+
+    for i, value in enumerate(values):
+        if len(values) == 1:
+            x = padding_left + chart_width / 2
+        else:
+            x = padding_left + (
+                chart_width * i / (len(values) - 1)
+            )
+
+        ratio = (value - min_value) / (max_value - min_value)
+
+        y = (
+            padding_top
+            + chart_height
+            - ratio * chart_height
+        )
+
+        points.append((x, y, value))
+
+    point_string = " ".join(
+        f"{x:.1f},{y:.1f}"
+        for x, y, _ in points
+    )
+
+    area_points = (
+        f"{padding_left},{padding_top + chart_height} "
+        + point_string
+        + f" {points[-1][0]:.1f},{padding_top + chart_height}"
+    )
+
+    # 横グリッド
+    grid = ""
+
+    for i in range(5):
+        ratio = i / 4
+        y = padding_top + chart_height * ratio
+
+        value = max_value - (
+            (max_value - min_value) * ratio
+        )
+
+        grid += f"""
+        <line
+            x1="{padding_left}"
+            y1="{y:.1f}"
+            x2="{width - padding_right}"
+            y2="{y:.1f}"
+            class="chart-grid"
+        />
+        <text
+            x="{padding_left - 10}"
+            y="{y + 4:.1f}"
+            class="chart-axis"
+            text-anchor="end"
+        >{int(round(value))}{esc(suffix)}</text>
+        """
+
+    # Xラベル
+    label_svg = ""
+
+    step = max(1, len(labels) // 6)
+
+    for i, label in enumerate(labels):
+        if (
+            i == 0
+            or i == len(labels) - 1
+            or i % step == 0
+        ):
+            x = points[i][0]
+
+            label_svg += f"""
+            <text
+                x="{x:.1f}"
+                y="{height - 12}"
+                class="chart-axis"
+                text-anchor="middle"
+            >{esc(label)}</text>
+            """
+
+    circles = ""
+
+    for x, y, value in points:
+        circles += f"""
+        <circle
+            cx="{x:.1f}"
+            cy="{y:.1f}"
+            r="3.5"
+            fill="{stroke}"
+        >
+            <title>{value}{esc(suffix)}</title>
+        </circle>
+        """
+
+    return f"""
+    <svg
+        class="line-chart"
+        viewBox="0 0 {width} {height}"
+        preserveAspectRatio="none"
+        aria-hidden="true"
     >
-        <title>{value}{esc(suffix)}</title>
-    </circle>
+        <defs>
+            <linearGradient
+                id="chartFill"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+            >
+                <stop
+                    offset="0%"
+                    stop-color="{fill}"
+                    stop-opacity="0.42"
+                />
+                <stop
+                    offset="100%"
+                    stop-color="{fill}"
+                    stop-opacity="0"
+                />
+            </linearGradient>
+        </defs>
+
+        {grid}
+
+        <polygon
+            points="{area_points}"
+            fill="url(#chartFill)"
+        />
+
+        <polyline
+            points="{point_string}"
+            fill="none"
+            stroke="{stroke}"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+        {circles}
+        {label_svg}
+    </svg>
     """
 
-return f"""
-<svg
-    class="line-chart"
-    viewBox="0 0 {width} {height}"
-    preserveAspectRatio="none"
-    aria-hidden="true"
->
-    <defs>
-        <linearGradient
-            id="chartFill"
-            x1="0"
-            y1="0"
-            x2="0"
-            y2="1"
-        >
-            <stop
-                offset="0%"
-                stop-color="{fill}"
-                stop-opacity="0.42"
-            />
-            <stop
-                offset="100%"
-                stop-color="{fill}"
-                stop-opacity="0"
-            />
-        </linearGradient>
-    </defs>
-
-    {grid}
-
-    <polygon
-        points="{area_points}"
-        fill="url(#chartFill)"
-    />
-
-    <polyline
-        points="{point_string}"
-        fill="none"
-        stroke="{stroke}"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-    />
-
-    {circles}
-    {label_svg}
-</svg>
-"""
-
-------------------------------------------------------------
-
-Daily chart data
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Daily chart data
+# ------------------------------------------------------------
 
 daily_labels = [
-date_key(item.get("date"))
-for item in daily_stats
+    date_key(item.get("date"))
+    for item in daily_stats
 ]
 
 daily_followers = [
-safe_int(item.get("followers"))
-for item in daily_stats
+    safe_int(item.get("followers"))
+    for item in daily_stats
 ]
 
 daily_likes = [
-safe_int(item.get("total_likes"))
-for item in daily_stats
+    safe_int(item.get("total_likes"))
+    for item in daily_stats
 ]
 
 daily_posts = [
-safe_int(item.get("note_count"))
-for item in daily_stats
+    safe_int(item.get("note_count"))
+    for item in daily_stats
 ]
 
 followers_chart = make_line_chart(
-daily_labels,
-daily_followers,
-stroke=PURPLE,
-fill=PURPLE_LIGHT
+    daily_labels,
+    daily_followers,
+    stroke=PURPLE,
+    fill=PURPLE_LIGHT
 )
 
 likes_chart = make_line_chart(
-daily_labels,
-daily_likes,
-stroke=RED,
-fill=PINK
+    daily_labels,
+    daily_likes,
+    stroke=RED,
+    fill=PINK
 )
 
 posts_chart = make_line_chart(
-daily_labels,
-daily_posts,
-stroke="#4f536d",
-fill="#dfe2ef"
+    daily_labels,
+    daily_posts,
+    stroke="#4f536d",
+    fill="#dfe2ef"
 )
 
-------------------------------------------------------------
-
-Monthly activity chart
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Monthly activity chart
+# ------------------------------------------------------------
 
 def make_monthly_bars(months, values):
-if not months:
-return """
-<div class="empty-chart">
-データがまだありません。
-</div>
-"""
-
-max_value = max(values) if values else 1
-max_value = max(max_value, 1)
-
-bars = ""
-
-for month, value in zip(months, values):
-    height = max(4, (value / max_value) * 150)
-
-    bars += f"""
-    <div class="bar-column">
-        <div class="bar-value">{value}</div>
-
-        <div
-            class="bar"
-            style="height:{height:.1f}px"
-            title="{esc(month)}：{value}本"
-        ></div>
-
-        <div class="bar-label">
-            {esc(month[-5:])}
+    if not months:
+        return """
+        <div class="empty-chart">
+            データがまだありません。
         </div>
+        """
+
+    max_value = max(values) if values else 1
+    max_value = max(max_value, 1)
+
+    bars = ""
+
+    for month, value in zip(months, values):
+        height = max(4, (value / max_value) * 150)
+
+        bars += f"""
+        <div class="bar-column">
+            <div class="bar-value">{value}</div>
+
+            <div
+                class="bar"
+                style="height:{height:.1f}px"
+                title="{esc(month)}：{value}本"
+            ></div>
+
+            <div class="bar-label">
+                {esc(month[-5:])}
+            </div>
+        </div>
+        """
+
+    return f"""
+    <div class="bar-chart">
+        {bars}
     </div>
     """
-
-return f"""
-<div class="bar-chart">
-    {bars}
-</div>
-"""
 
 monthly_chart = make_monthly_bars(
-months,
-[monthly_posts[m] for m in months]
+    months,
+    [monthly_posts[m] for m in months]
 )
 
-------------------------------------------------------------
-
-Activity heatmap
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Activity heatmap
+# ------------------------------------------------------------
 
 def make_activity_heatmap(notes):
-counts = defaultdict(int)
+    counts = defaultdict(int)
 
-for note in notes:
-    key = date_key(note.get("published_at"))
+    for note in notes:
+        key = date_key(note.get("published_at"))
 
-    if key:
-        counts[key] += 1
+        if key:
+            counts[key] += 1
 
-if not counts:
-    return """
-    <div class="empty-chart">
-        投稿データがまだありません。
+    if not counts:
+        return """
+        <div class="empty-chart">
+            投稿データがまだありません。
+        </div>
+        """
+
+    latest = max(counts.keys())
+
+    try:
+        latest_date = date.fromisoformat(latest)
+    except ValueError:
+        return ""
+
+    # 16週間
+    start = latest_date - timedelta(days=111)
+
+    # 月曜始まり
+    start -= timedelta(days=start.weekday())
+
+    cells = []
+
+    for i in range(16 * 7):
+        current = start + timedelta(days=i)
+        key = current.isoformat()
+        count = counts.get(key, 0)
+
+        if count == 0:
+            level = 0
+        elif count == 1:
+            level = 1
+        elif count == 2:
+            level = 2
+        else:
+            level = 3
+
+        cells.append(
+            f"""
+            <span
+                class="heat-cell level-{level}"
+                title="{current.strftime('%Y.%m.%d')}：{count}本"
+            ></span>
+            """
+        )
+
+    return f"""
+    <div class="heatmap-wrap">
+        <div class="weekday-labels">
+            <span>月</span>
+            <span>水</span>
+            <span>金</span>
+        </div>
+
+        <div class="heatmap">
+            {"".join(cells)}
+        </div>
+    </div>
+
+    <div class="heat-legend">
+        <span>少ない</span>
+        <i class="heat-cell level-0"></i>
+        <i class="heat-cell level-1"></i>
+        <i class="heat-cell level-2"></i>
+        <i class="heat-cell level-3"></i>
+        <span>多い</span>
     </div>
     """
-
-latest = max(counts.keys())
-
-try:
-    latest_date = date.fromisoformat(latest)
-except ValueError:
-    return ""
-
-# 16週間
-start = latest_date - timedelta(days=111)
-
-# 月曜始まり
-start -= timedelta(days=start.weekday())
-
-cells = []
-
-for i in range(16 * 7):
-    current = start + timedelta(days=i)
-    key = current.isoformat()
-    count = counts.get(key, 0)
-
-    if count == 0:
-        level = 0
-    elif count == 1:
-        level = 1
-    elif count == 2:
-        level = 2
-    else:
-        level = 3
-
-    cells.append(
-        f"""
-        <span
-            class="heat-cell level-{level}"
-            title="{current.strftime('%Y.%m.%d')}：{count}本"
-        ></span>
-        """
-    )
-
-return f"""
-<div class="heatmap-wrap">
-    <div class="weekday-labels">
-        <span>月</span>
-        <span>水</span>
-        <span>金</span>
-    </div>
-
-    <div class="heatmap">
-        {"".join(cells)}
-    </div>
-</div>
-
-<div class="heat-legend">
-    <span>少ない</span>
-    <i class="heat-cell level-0"></i>
-    <i class="heat-cell level-1"></i>
-    <i class="heat-cell level-2"></i>
-    <i class="heat-cell level-3"></i>
-    <span>多い</span>
-</div>
-"""
 
 heatmap = make_activity_heatmap(notes)
 
-------------------------------------------------------------
-
-Popular articles
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Popular articles
+# ------------------------------------------------------------
 
 popular_notes = sorted(
-notes,
-key=lambda x: (
-safe_int(x.get("likes")),
-safe_int(x.get("comments"))
-),
-reverse=True
+    notes,
+    key=lambda x: (
+        safe_int(x.get("likes")),
+        safe_int(x.get("comments"))
+    ),
+    reverse=True
 )[:5]
 
 popular_html = ""
 
 for index, note in enumerate(popular_notes, start=1):
-title = clean_title(note.get("title"))
-likes = safe_int(note.get("likes"))
-comments = safe_int(note.get("comments"))
+    title = clean_title(note.get("title"))
+    likes = safe_int(note.get("likes"))
+    comments = safe_int(note.get("comments"))
 
-popular_html += f"""
-<a
-    class="popular-item"
-    href="{esc(note_url(note))}"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    <span class="popular-rank">
-        {index:02d}
-    </span>
+    popular_html += f"""
+    <a
+        class="popular-item"
+        href="{esc(note_url(note))}"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span class="popular-rank">
+            {index:02d}
+        </span>
 
-    <span class="popular-title">
-        {esc(title)}
-    </span>
+        <span class="popular-title">
+            {esc(title)}
+        </span>
 
-    <span class="popular-stats">
-        ♥ {likes}
-        <small>／ 💬 {comments}</small>
-    </span>
-</a>
-"""
+        <span class="popular-stats">
+            ♥ {likes}
+            <small>／ 💬 {comments}</small>
+        </span>
+    </a>
+    """
 
-------------------------------------------------------------
-
-Article list
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Article list
+# ------------------------------------------------------------
 
 article_rows = ""
 
 for note in notes:
-title = clean_title(note.get("title"))
-published = format_date(note.get("published_at"))
-month = format_month(note.get("published_at"))
-likes = safe_int(note.get("likes"))
-comments = safe_int(note.get("comments"))
-price = safe_int(note.get("price"))
+    title = clean_title(note.get("title"))
+    published = format_date(note.get("published_at"))
+    month = format_month(note.get("published_at"))
+    likes = safe_int(note.get("likes"))
+    comments = safe_int(note.get("comments"))
+    price = safe_int(note.get("price"))
 
-article_type = "有料" if price > 0 else "無料"
+    article_type = "有料" if price > 0 else "無料"
 
-article_rows += f"""
-<article
-    class="article-row"
-    data-title="{esc(title.lower())}"
-    data-month="{esc(month)}"
-    data-likes="{likes}"
-    data-comments="{comments}"
->
-    <div class="article-date">
-        {esc(published)}
-    </div>
-
-    <div class="article-main">
-        <a
-            href="{esc(note_url(note))}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="article-title"
-        >
-            {esc(title)}
-        </a>
-
-        <div class="article-meta">
-            <span>{article_type}</span>
+    article_rows += f"""
+    <article
+        class="article-row"
+        data-title="{esc(title.lower())}"
+        data-month="{esc(month)}"
+        data-likes="{likes}"
+        data-comments="{comments}"
+    >
+        <div class="article-date">
+            {esc(published)}
         </div>
-    </div>
 
-    <div class="article-stats">
-        <span class="like-stat">
-            ♥ {likes}
-        </span>
+        <div class="article-main">
+            <a
+                href="{esc(note_url(note))}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="article-title"
+            >
+                {esc(title)}
+            </a>
 
-        <span class="comment-stat">
-            💬 {comments}
-        </span>
-    </div>
-</article>
-"""
+            <div class="article-meta">
+                <span>{article_type}</span>
+            </div>
+        </div>
 
-------------------------------------------------------------
+        <div class="article-stats">
+            <span class="like-stat">
+                ♥ {likes}
+            </span>
 
-Month options
+            <span class="comment-stat">
+                💬 {comments}
+            </span>
+        </div>
+    </article>
+    """
 
-------------------------------------------------------------
+# ------------------------------------------------------------
+# Month options
+# ------------------------------------------------------------
 
 month_options = ""
 
 for month in reversed(months):
-month_options += f"""
-<option value="{esc(month)}">
-{esc(month)}
-</option>
-"""
+    month_options += f"""
+    <option value="{esc(month)}">
+        {esc(month)}
+    </option>
+    """
 
-------------------------------------------------------------
-
-HTML
-
-------------------------------------------------------------
+# ------------------------------------------------------------
+# HTML
+# ------------------------------------------------------------
 
 html_document = f"""<!DOCTYPE html>
 
@@ -727,13 +698,13 @@ html_document = f"""<!DOCTYPE html>
 name="viewport"
 content="width=device-width, initial-scale=1.0"
 
-«»
+>
 
 <title>{esc(PAGE_TITLE)}</title><meta
 name="description"
 content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フォロワー、投稿活動の推移を記録しています。"
 
-«»
+>
 
 <meta name="theme-color" content="{BG}"><style>
 
@@ -2199,7 +2170,7 @@ a {{
 
                 return;
 
-            }
+            }}
 
 
             const pageButton =
@@ -2385,18 +2356,17 @@ a {{
 
 </script></body>
 </html>
-"""------------------------------------------------------------
-
-Write
-
-------------------------------------------------------------
+"""
+# ------------------------------------------------------------
+# Write
+# ------------------------------------------------------------
 
 with open(
-OUTPUT_FILE,
-"w",
-encoding="utf-8"
+    OUTPUT_FILE,
+    "w",
+    encoding="utf-8"
 ) as f:
-f.write(html_document)
+    f.write(html_document)
 
 print(f"HTML generated: {OUTPUT_FILE}")
 print(f"Articles: {article_count}")
