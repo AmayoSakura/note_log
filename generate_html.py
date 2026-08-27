@@ -3,7 +3,7 @@ import html
 import re
 from pathlib import Path
 from collections import defaultdict
-from datetime import datetime, date, timedelta
+from datetime import datetime, date, timedelta, timezone
 
 # ============================================================
 # Squall NOTE LOG
@@ -577,6 +577,150 @@ def make_activity_heatmap(notes):
     """
 
 heatmap = make_activity_heatmap(notes)
+
+# ------------------------------------------------------------
+# Writing pace: streaks
+# ------------------------------------------------------------
+
+def compute_weekly_streaks(notes):
+    """
+    週（月曜始まり）単位で「1本以上投稿した週」の連続記録を数える。
+    """
+    dates = sorted({
+        date_key(note.get("published_at"))
+        for note in notes
+        if note.get("published_at")
+    })
+
+    dates = [d for d in dates if d]
+
+    if not dates:
+        return {
+            "longest": 0,
+            "current": 0,
+            "recent_weeks": [],
+        }
+
+    parsed_dates = sorted(
+        date.fromisoformat(d) for d in dates
+    )
+
+    def week_start(d):
+        return d - timedelta(days=d.weekday())
+
+    posted_weeks = sorted({
+        week_start(d) for d in parsed_dates
+    })
+
+    # 最長連続週数
+    longest = 1
+    current_run = 1
+
+    for i in range(1, len(posted_weeks)):
+        gap_weeks = (
+            (posted_weeks[i] - posted_weeks[i - 1]).days // 7
+        )
+
+        if gap_weeks == 1:
+            current_run += 1
+        elif gap_weeks > 1:
+            longest = max(longest, current_run)
+            current_run = 1
+
+    longest = max(longest, current_run)
+
+    # 現在進行中の連続週数（今週 or 先週から遡って連続しているか）
+    JST = timezone(timedelta(hours=9))
+    today_local = datetime.now(JST).date()
+    this_week_start = week_start(today_local)
+
+    latest_posted_week = posted_weeks[-1]
+    gap_from_this_week = (
+        (this_week_start - latest_posted_week).days // 7
+    )
+
+    if gap_from_this_week > 1:
+        current_streak = 0
+    else:
+        current_streak = 1
+
+        for i in range(len(posted_weeks) - 1, 0, -1):
+            gap_weeks = (
+                (posted_weeks[i] - posted_weeks[i - 1]).days // 7
+            )
+
+            if gap_weeks == 1:
+                current_streak += 1
+            else:
+                break
+
+    # 直近12週間の週間投稿数
+    recent_weeks = []
+
+    for i in range(11, -1, -1):
+        target_week = this_week_start - timedelta(weeks=i)
+        target_week_end = target_week + timedelta(days=6)
+
+        count = sum(
+            1
+            for d in parsed_dates
+            if target_week <= d <= target_week_end
+        )
+
+        recent_weeks.append({
+            "label": f"{target_week.month}/{target_week.day}",
+            "count": count,
+        })
+
+    return {
+        "longest": longest,
+        "current": current_streak,
+        "recent_weeks": recent_weeks,
+    }
+
+
+def make_weekly_bars(recent_weeks):
+    if not recent_weeks:
+        return """
+        <div class="empty-chart">
+            データがまだありません。
+        </div>
+        """
+
+    max_value = max(w["count"] for w in recent_weeks)
+    max_value = max(max_value, 1)
+
+    bars = ""
+
+    for week in recent_weeks:
+        height = max(4, (week["count"] / max_value) * 120)
+
+        bars += f"""
+        <div class="bar-column">
+            <div class="bar-value">{week["count"]}</div>
+
+            <div
+                class="bar"
+                style="height:{height:.1f}px"
+                title="週{esc(week['label'])}〜：{week['count']}本"
+            ></div>
+
+            <div class="bar-label">
+                {esc(week["label"])}
+            </div>
+        </div>
+        """
+
+    return f"""
+    <div class="bar-chart">
+        {bars}
+    </div>
+    """
+
+streaks = compute_weekly_streaks(notes)
+longest_streak = streaks["longest"]
+current_streak = streaks["current"]
+weekly_pace_chart = make_weekly_bars(streaks["recent_weeks"])
 
 # ------------------------------------------------------------
 # Popular articles
@@ -1171,6 +1315,56 @@ a {{
     color: var(--muted);
 
     white-space: nowrap;
+}}
+
+.streak-stats {{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1px;
+
+    background: var(--line);
+
+    border: 1px solid var(--line);
+
+    margin-top: 6px;
+}}
+
+.streak-stat {{
+    background: var(--paper);
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}}
+
+.streak-value {{
+    font-family: 'Crimson Pro', Georgia, serif;
+
+    font-size: clamp(30px, 4.5vw, 42px);
+
+    color: var(--purple);
+
+    line-height: 1;
+}}
+
+.streak-unit {{
+    font-size: 12px;
+
+    color: var(--muted);
+
+    margin-left: 4px;
+}}
+
+.streak-label {{
+    font-size: 11px;
+
+    color: var(--muted);
 }}
 
 .heatmap-wrap {{
@@ -1824,6 +2018,64 @@ a {{
         {heatmap}
 
     </div>
+
+</div>
+
+
+<div
+    class="panel"
+    style="margin-top:18px;"
+>
+
+    <h3 class="panel-title">
+        Streaks
+    </h3>
+
+    <p class="panel-caption">
+        連続投稿の記録（週単位）
+    </p>
+
+    <div class="streak-stats">
+
+        <div class="streak-stat">
+            <div class="streak-value">
+                {longest_streak}
+                <span class="streak-unit">週</span>
+            </div>
+            <div class="streak-label">
+                最長連続投稿週
+            </div>
+        </div>
+
+        <div class="streak-stat">
+            <div class="streak-value">
+                {current_streak}
+                <span class="streak-unit">週</span>
+            </div>
+            <div class="streak-label">
+                現在の連続投稿週
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    class="panel"
+    style="margin-top:18px;"
+>
+
+    <h3 class="panel-title">
+        Weekly pace
+    </h3>
+
+    <p class="panel-caption">
+        直近12週間の週間投稿本数
+    </p>
+
+    {weekly_pace_chart}
 
 </div>
 
