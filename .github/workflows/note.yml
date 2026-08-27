@@ -1,6 +1,9 @@
 name: Collect note data
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
+      timezone: 'Asia/Tokyo'
   workflow_dispatch:
 
 permissions:
