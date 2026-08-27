@@ -2,7 +2,7 @@ name: Collect note data
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '15 15 * * *'
       timezone: 'Asia/Tokyo'
   workflow_dispatch:
 
