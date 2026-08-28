@@ -668,6 +668,70 @@ a {
         sans-serif;
 }
 
+.magazine-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+    gap: 12px;
+
+    margin-top: 6px;
+
+    min-width: 0;
+}
+
+.magazine-card {
+    display: block;
+
+    background: var(--bg);
+
+    border: 1px solid var(--line);
+
+    border-radius: 4px;
+
+    padding: 16px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    min-width: 0;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.magazine-card:hover {
+    border-color: var(--purple);
+
+    transform: translateY(-2px);
+}
+
+.magazine-title {
+    font-family: 'Crimson Pro', Georgia, serif;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: var(--ink);
+
+    overflow-wrap: break-word;
+}
+
+.magazine-meta {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
 .filters {
     display: flex;
 
@@ -774,16 +838,6 @@ a {
 
 .article-title:hover {
     color: var(--purple);
-}
-
-.article-meta {
-    margin-top: 5px;
-
-    color: var(--muted);
-
-    font-size: 9px;
-
-    letter-spacing: 0.08em;
 }
 
 .article-stats {
@@ -1045,7 +1099,7 @@ a {
     </h2>
 
     <span class="section-caption">
-        記録時点 2026.08.27
+        記録時点 2026.08.28
     </span>
 
 </div>
@@ -1129,6 +1183,27 @@ a {
             average 0.3 / article
         </div>
 
+    </div>
+
+</div>
+
+
+<div class="panel" style="margin-top:32px;">
+
+    <h3 class="panel-title">
+        Magazines
+    </h3>
+
+    <p class="panel-caption">
+        マガジン一覧（収録本数順）
+    </p>
+
+    <div class="magazine-grid">
+        
+    <div class="empty-chart">
+        マガジンがまだありません。
+    </div>
+    
     </div>
 
 </div>
@@ -2758,12 +2833,12 @@ a {
         
 
         <polygon
-            points="48,260 464.0,142.0 464.0,260"
+            points="48,260 48.0,142.0 880.0,142.0 880.0,260"
             fill="url(#chartFill)"
         />
 
         <polyline
-            points="464.0,142.0"
+            points="48.0,142.0 880.0,142.0"
             fill="none"
             stroke="#73482a"
             stroke-width="2.5"
@@ -2773,7 +2848,16 @@ a {
 
         
         <circle
-            cx="464.0"
+            cx="48.0"
+            cy="142.0"
+            r="3.5"
+            fill="#73482a"
+        >
+            <title>81</title>
+        </circle>
+        
+        <circle
+            cx="880.0"
             cy="142.0"
             r="3.5"
             fill="#73482a"
@@ -2783,11 +2867,18 @@ a {
         
         
             <text
-                x="464.0"
+                x="48.0"
                 y="288"
                 class="chart-axis"
                 text-anchor="middle"
             >2026-08-27</text>
+            
+            <text
+                x="880.0"
+                y="288"
+                class="chart-axis"
+                text-anchor="middle"
+            >2026-08-28</text>
             
     </svg>
     
@@ -2906,12 +2997,12 @@ a {
         
 
         <polygon
-            points="48,260 464.0,142.0 464.0,260"
+            points="48,260 48.0,142.0 880.0,142.0 880.0,260"
             fill="url(#chartFill)"
         />
 
         <polyline
-            points="464.0,142.0"
+            points="48.0,142.0 880.0,142.0"
             fill="none"
             stroke="#8a3a26"
             stroke-width="2.5"
@@ -2921,7 +3012,16 @@ a {
 
         
         <circle
-            cx="464.0"
+            cx="48.0"
+            cy="142.0"
+            r="3.5"
+            fill="#8a3a26"
+        >
+            <title>1681</title>
+        </circle>
+        
+        <circle
+            cx="880.0"
             cy="142.0"
             r="3.5"
             fill="#8a3a26"
@@ -2931,11 +3031,18 @@ a {
         
         
             <text
-                x="464.0"
+                x="48.0"
                 y="288"
                 class="chart-axis"
                 text-anchor="middle"
             >2026-08-27</text>
+            
+            <text
+                x="880.0"
+                y="288"
+                class="chart-axis"
+                text-anchor="middle"
+            >2026-08-28</text>
             
     </svg>
     
@@ -3059,12 +3166,12 @@ a {
         
 
         <polygon
-            points="48,260 464.0,142.0 464.0,260"
+            points="48,260 48.0,142.0 880.0,142.0 880.0,260"
             fill="url(#chartFill)"
         />
 
         <polyline
-            points="464.0,142.0"
+            points="48.0,142.0 880.0,142.0"
             fill="none"
             stroke="#4f536d"
             stroke-width="2.5"
@@ -3074,7 +3181,16 @@ a {
 
         
         <circle
-            cx="464.0"
+            cx="48.0"
+            cy="142.0"
+            r="3.5"
+            fill="#4f536d"
+        >
+            <title>217</title>
+        </circle>
+        
+        <circle
+            cx="880.0"
             cy="142.0"
             r="3.5"
             fill="#4f536d"
@@ -3084,11 +3200,18 @@ a {
         
         
             <text
-                x="464.0"
+                x="48.0"
                 y="288"
                 class="chart-axis"
                 text-anchor="middle"
             >2026-08-27</text>
+            
+            <text
+                x="880.0"
+                y="288"
+                class="chart-axis"
+                text-anchor="middle"
+            >2026-08-28</text>
             
     </svg>
     
@@ -3482,10 +3605,6 @@ a {
             >
                 2027年の手帳を決める（暫定）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3519,10 +3638,6 @@ a {
             >
                 AIと遊ぼう！
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3556,10 +3671,6 @@ a {
             >
                 言ノ葉Editerの裏話をしよう
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3593,10 +3704,6 @@ a {
             >
                 ブラウザだけで本になる！無料組版ツール「言ノ葉Editer」
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3630,10 +3737,6 @@ a {
             >
                 来年の手帳を考え始める
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3667,10 +3770,6 @@ a {
             >
                 言ノ葉エディタのLPができた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3704,10 +3803,6 @@ a {
             >
                 素敵イラストをいただいた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3741,10 +3836,6 @@ a {
             >
                 創作月報：2026/07
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3778,10 +3869,6 @@ a {
             >
                 言ノ葉Editer：小説同人誌のためのPDFレイアウトツール
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3815,10 +3902,6 @@ a {
             >
                 Webアプリを作っている
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3852,10 +3935,6 @@ a {
             >
                 雑記:ただの日記
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3889,10 +3968,6 @@ a {
             >
                 スマートウォッチデビューした
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3926,10 +4001,6 @@ a {
             >
                 OneNoteの使い方を覚えた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -3963,10 +4034,6 @@ a {
             >
                 ソシャゲがしんどくなっていく
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4000,10 +4067,6 @@ a {
             >
                 手持ちインクを並べる～緑編～
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4037,10 +4100,6 @@ a {
             >
                 創作月報：2026/06
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4074,10 +4133,6 @@ a {
             >
                 生成は難しい（色んな意味で）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4111,10 +4166,6 @@ a {
             >
                 最近気になるキーボード
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4148,10 +4199,6 @@ a {
             >
                 担当編集AIをビジュアライズしてみる
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4185,10 +4232,6 @@ a {
             >
                 万年筆に入ってるインク（2026/6）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4222,10 +4265,6 @@ a {
             >
                 サイトを改装した（半年ぶり）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4259,10 +4298,6 @@ a {
             >
                 AIログ解析型の診断で遊んでみた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4296,10 +4331,6 @@ a {
             >
                 創作月報：2026/05
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4333,10 +4364,6 @@ a {
             >
                 好きだけど苦手なこと
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4370,10 +4397,6 @@ a {
             >
                 万年筆徒然
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4407,10 +4430,6 @@ a {
             >
                 担当編集AIたち（2026年5月下旬現在）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4444,10 +4463,6 @@ a {
             >
                 最近の創作方法
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4481,10 +4496,6 @@ a {
             >
                 そしてお迎え
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4518,10 +4529,6 @@ a {
             >
                 CRACK＼DECODE
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4555,10 +4562,6 @@ a {
             >
                 創作月報：2026/04
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4592,10 +4595,6 @@ a {
             >
                 手持ちインクを並べる～青編～
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4629,10 +4628,6 @@ a {
             >
                 レシピ帳を書く
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4666,10 +4661,6 @@ a {
             >
                 雑記：AI創作の是非
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4703,10 +4694,6 @@ a {
             >
                 Gemini de ズボラごはん
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4740,10 +4727,6 @@ a {
             >
                 サブスクの整理
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4777,10 +4760,6 @@ a {
             >
                 久しぶりにCursorを触った
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4814,10 +4793,6 @@ a {
             >
                 万年筆を眺める
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4851,10 +4826,6 @@ a {
             >
                 創作月報：2026/03
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4888,10 +4859,6 @@ a {
             >
                 パスポートケースを眺める
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4925,10 +4892,6 @@ a {
             >
                 手持ちインクを並べる～紫編～
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4962,10 +4925,6 @@ a {
             >
                 チェアが寿命
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -4999,10 +4958,6 @@ a {
             >
                 OcculTrigger
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5036,10 +4991,6 @@ a {
             >
                 最近のFF14プレイについて考える
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5073,10 +5024,6 @@ a {
             >
                 手帳を増やすことにした
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5110,10 +5057,6 @@ a {
             >
                 「That you know?」が好きすぎる
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5147,10 +5090,6 @@ a {
             >
                 創作月報：2026/02
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5184,10 +5123,6 @@ a {
             >
                 神僕engage
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5221,10 +5156,6 @@ a {
             >
                 インク帳を作ろう
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5258,10 +5189,6 @@ a {
             >
                 「Try＆Groove」がめちゃくちゃ良い
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5295,10 +5222,6 @@ a {
             >
                 欲しいインクを探してみる
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5332,10 +5255,6 @@ a {
             >
                 担当編集AIとの付き合い方
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5369,10 +5288,6 @@ a {
             >
                 創作月報：2026/01
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5406,10 +5321,6 @@ a {
             >
                 2025年に出会った楽曲のこと
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5443,10 +5354,6 @@ a {
             >
                 新年インク（ということにする）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5480,10 +5387,6 @@ a {
             >
                 欲しいツールを求めて
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5517,10 +5420,6 @@ a {
             >
                 小説の書き方って何だ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5554,10 +5453,6 @@ a {
             >
                 今年やりたい10のこと（ver.2026）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5591,10 +5486,6 @@ a {
             >
                 性格が真逆の担当編集AIさんたち
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5628,10 +5519,6 @@ a {
             >
                 2026年も手帳を書く
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5665,10 +5552,6 @@ a {
             >
                 創作月報：2025/12
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5702,10 +5585,6 @@ a {
             >
                 2025年を振り返る
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5739,10 +5618,6 @@ a {
             >
                 ０番街の星涙拾い―境界の修繕屋―
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5776,10 +5651,6 @@ a {
             >
                 買ってよかったものの話（ver.2025）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5813,10 +5684,6 @@ a {
             >
                 note的な2025年振り返り
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5850,10 +5717,6 @@ a {
             >
                 本を作った話（ver.2025）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5887,10 +5750,6 @@ a {
             >
                 新たにやってきた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5924,10 +5783,6 @@ a {
             >
                 サイトを改装した
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5961,10 +5816,6 @@ a {
             >
                 再生回数を回せ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -5998,10 +5849,6 @@ a {
             >
                 指先痛い問題
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6035,10 +5882,6 @@ a {
             >
                 創作月報：2025/11
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6072,10 +5915,6 @@ a {
             >
                 羽根ペンを買った
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6109,10 +5948,6 @@ a {
             >
                 Task Notesを使い始めた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6146,10 +5981,6 @@ a {
             >
                 トラベラーズノート（もどき）を始めた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6183,10 +6014,6 @@ a {
             >
                 15年前の私へ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6220,10 +6047,6 @@ a {
             >
                 FF14：うちのこ設定①
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6257,10 +6080,6 @@ a {
             >
                 創作月報：2025/10
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6294,10 +6113,6 @@ a {
             >
                 あと２か月のお供
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6331,10 +6146,6 @@ a {
             >
                 雑記:だらだらDay
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6368,10 +6179,6 @@ a {
             >
                 手持ち全部書き並べてみた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6405,10 +6212,6 @@ a {
             >
                 概念万年筆、あるいは一目惚れ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6442,10 +6245,6 @@ a {
             >
                 雑記：推しが推しを呼ぶ……？
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6479,10 +6278,6 @@ a {
             >
                 EntranCEに立った
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6516,10 +6311,6 @@ a {
             >
                 創作ノート２冊目が終わった
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6553,10 +6344,6 @@ a {
             >
                 Gemini CLIにキャラクター紹介書いてもらった
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6590,10 +6377,6 @@ a {
             >
                 創作月報：2025/09
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6627,10 +6410,6 @@ a {
             >
                 机の上の話（ver.2025）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6664,10 +6443,6 @@ a {
             >
                 &quot;MAD HOPE&quot;に触れて
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6701,10 +6476,6 @@ a {
             >
                 万年筆ケースが欲しくて
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6738,10 +6509,6 @@ a {
             >
                 雑記：最近の日常
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6775,10 +6542,6 @@ a {
             >
                 8番出口を見てきたので感想とか考察とか
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6812,10 +6575,6 @@ a {
             >
                 手帳買ったよ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6849,10 +6608,6 @@ a {
             >
                 緑が欲しいなと思った
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6886,10 +6641,6 @@ a {
             >
                 創作月報：2025/08
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6923,10 +6674,6 @@ a {
             >
                 雑記：赤インクを探している
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6960,10 +6707,6 @@ a {
             >
                 手帳どうする問題
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -6997,10 +6740,6 @@ a {
             >
                 Newインク：六甲高山クリンソウ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7034,10 +6773,6 @@ a {
             >
                 手帳が増えた……
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7071,10 +6806,6 @@ a {
             >
                 Newキーボード
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7108,10 +6839,6 @@ a {
             >
                 LIGHTIVEはやっぱりすごい
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7145,10 +6872,6 @@ a {
             >
                 自己紹介兼noteマップ(2026/6/6更新)
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7182,10 +6905,6 @@ a {
             >
                 iro-utsushiを求めて
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7219,10 +6938,6 @@ a {
             >
                 創作月報：2025/07
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7256,10 +6971,6 @@ a {
             >
                 雑記:最近の万年筆事情
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7293,10 +7004,6 @@ a {
             >
                 con-70nを買った
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7330,10 +7037,6 @@ a {
             >
                 雑記：スマホの機種変更はいつも悩む
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7367,10 +7070,6 @@ a {
             >
                 ほぼ日手帳が続いている
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7404,10 +7103,6 @@ a {
             >
                 Obsidian×Gemini CLIで創作手伝ってもらおうの巻
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7441,10 +7136,6 @@ a {
             >
                 うちのこ概念万年筆を探す：後編
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7478,10 +7169,6 @@ a {
             >
                 色彩雫：蛍火
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7515,10 +7202,6 @@ a {
             >
                 久々にUSJ行ってきた日記
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7552,10 +7235,6 @@ a {
             >
                 創作月報：2025/06
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7589,10 +7268,6 @@ a {
             >
                 うちのこ概念万年筆を探す：前編
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7626,10 +7301,6 @@ a {
             >
                 雑記：note会員数が1,000万人ですって
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7663,10 +7334,6 @@ a {
             >
                 出会ったインクは恋しい色だった
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7700,10 +7367,6 @@ a {
             >
                 雑記：AIと創作あれこれ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7737,10 +7400,6 @@ a {
             >
                 孔雀緑を買った
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7774,10 +7433,6 @@ a {
             >
                 雑記：マウスの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7811,10 +7466,6 @@ a {
             >
                 万年筆増殖中
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7848,10 +7499,6 @@ a {
             >
                 ブラウザを乗り換えることにした
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7885,10 +7532,6 @@ a {
             >
                 創作月報：2025/05
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7922,10 +7565,6 @@ a {
             >
                 雑記：とりとめなく
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7959,10 +7598,6 @@ a {
             >
                 気になってたインク
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -7996,10 +7631,6 @@ a {
             >
                 創作ノート、１冊終わった
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8033,10 +7664,6 @@ a {
             >
                 万年筆インク＠2025.5
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8070,10 +7697,6 @@ a {
             >
                 たまにはガラスペン
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8107,10 +7730,6 @@ a {
             >
                 万年筆増えたよ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8144,10 +7763,6 @@ a {
             >
                 obsidian使用法@2025
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8181,10 +7796,6 @@ a {
             >
                 創作月報：2025/04
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8218,10 +7829,6 @@ a {
             >
                 SixTONES沼に足首掴まれてる
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8255,10 +7862,6 @@ a {
             >
                 欲しい万年筆ができた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8292,10 +7895,6 @@ a {
             >
                 THE&amp;のライブに行ってきた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8329,10 +7928,6 @@ a {
             >
                 トラベラーズノートが気になる
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8366,10 +7961,6 @@ a {
             >
                 雑記：こうやって衰えていくのかなあ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8403,10 +7994,6 @@ a {
             >
                 ここ３か月で本当によく万年筆の話しとるなこの人……って改めて思ったので、マガ…
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8440,10 +8027,6 @@ a {
             >
                 うっかり増えた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8477,10 +8060,6 @@ a {
             >
                 万年筆の持ち方のこと
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8514,10 +8093,6 @@ a {
             >
                 今月の一本
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8551,10 +8126,6 @@ a {
             >
                 創作月報：2025/03
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8588,10 +8159,6 @@ a {
             >
                 202503:物欲メモ（デスク周り編）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8625,10 +8192,6 @@ a {
             >
                 ブルーブラック覗き見
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8662,10 +8225,6 @@ a {
             >
                 スマホが調子悪い
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8699,10 +8258,6 @@ a {
             >
                 組み合わせの悩みがなくなってきた
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8736,10 +8291,6 @@ a {
             >
                 創作方法、原点回帰したっぽい
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8773,10 +8324,6 @@ a {
             >
                 ボールペンの芯を使い切った
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8810,10 +8357,6 @@ a {
             >
                 最近買ったもの（2025.3月Ver）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8847,10 +8390,6 @@ a {
             >
                 もう１本、万年筆。
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8884,10 +8423,6 @@ a {
             >
                 創作月報：2025/02
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8921,10 +8456,6 @@ a {
             >
                 タイプロでVBAを思い出した
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8958,10 +8489,6 @@ a {
             >
                 理由なんて分からなくても
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -8995,10 +8522,6 @@ a {
             >
                 出会いは大切
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9032,10 +8555,6 @@ a {
             >
                 思わぬ拾い物
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9069,10 +8588,6 @@ a {
             >
                 模様替えの目論見
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9106,10 +8621,6 @@ a {
             >
                 うちの猫たち
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9143,10 +8654,6 @@ a {
             >
                 色々使ってみたいお年頃
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9180,10 +8687,6 @@ a {
             >
                 創作月報：2025/01
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9217,10 +8720,6 @@ a {
             >
                 ほぼ日手帳を使ってみて
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9254,10 +8753,6 @@ a {
             >
                 万年筆、その後。
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9291,10 +8786,6 @@ a {
             >
                 特別な曲厳選しろって言われても
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9328,10 +8819,6 @@ a {
             >
                 万年筆再チャレンジ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9365,10 +8852,6 @@ a {
             >
                 デスク環境の微調整
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9402,10 +8885,6 @@ a {
             >
                 2024年に出会った楽曲のこと
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9439,10 +8918,6 @@ a {
             >
                 今年やりたい10のこと
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9476,10 +8951,6 @@ a {
             >
                 ”KinKi Kids”にさよならの準備を。
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9513,10 +8984,6 @@ a {
             >
                 2024年を振り返る
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9550,10 +9017,6 @@ a {
             >
                 本を作った話（ver.2024）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9587,10 +9050,6 @@ a {
             >
                 ミニPCを買った話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9624,10 +9083,6 @@ a {
             >
                 買ってよかったものの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9661,10 +9116,6 @@ a {
             >
                 創作ツールの話（ver.2024）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9698,10 +9149,6 @@ a {
             >
                 雑記：物欲の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9735,10 +9182,6 @@ a {
             >
                 Endless SHOCKという舞台
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9772,10 +9215,6 @@ a {
             >
                 改稿の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9809,10 +9248,6 @@ a {
             >
                 スマホ環境を快適にしたい話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9846,10 +9281,6 @@ a {
             >
                 雑記・肩こりの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9883,10 +9314,6 @@ a {
             >
                 続・手帳の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9920,10 +9347,6 @@ a {
             >
                 雑記:集中の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9957,10 +9380,6 @@ a {
             >
                 睡眠の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -9994,10 +9413,6 @@ a {
             >
                 小説を書く人に100の質問に答えた話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10031,10 +9446,6 @@ a {
             >
                 キーキャップを変えた話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10068,10 +9479,6 @@ a {
             >
                 机の上の話（ver.2024）
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10105,10 +9512,6 @@ a {
             >
                 Arcブラウザを使い始めた話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10142,10 +9545,6 @@ a {
             >
                 手帳の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10179,10 +9578,6 @@ a {
             >
                 体調を崩した話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10216,10 +9611,6 @@ a {
             >
                 アウトプットの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10253,10 +9644,6 @@ a {
             >
                 US配列チャレンジの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10290,10 +9677,6 @@ a {
             >
                 好きなロックバンドの再始動の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10327,10 +9710,6 @@ a {
             >
                 キーボードを掃除したかった話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10364,10 +9743,6 @@ a {
             >
                 タスク管理をNotionからObsidianに乗り換えた話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10401,10 +9776,6 @@ a {
             >
                 FINAL FANTASY VII REBIRTHに触れて
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10438,10 +9809,6 @@ a {
             >
                 声優ライブという文化の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10475,10 +9842,6 @@ a {
             >
                 アイドルの結婚について思う話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10512,10 +9875,6 @@ a {
             >
                 2023年を振り返る話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10549,10 +9908,6 @@ a {
             >
                 Nuxt3からAstroに乗り換え中の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10586,10 +9941,6 @@ a {
             >
                 続・個人サイトを改装した話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10623,10 +9974,6 @@ a {
             >
                 久しぶりに本を作った話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10660,10 +10007,6 @@ a {
             >
                 1ジャニヲタの戯言
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10697,10 +10040,6 @@ a {
             >
                 創作ツールの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10734,10 +10073,6 @@ a {
             >
                 個人サイトを改装した話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10771,10 +10106,6 @@ a {
             >
                 机の上の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10808,10 +10139,6 @@ a {
             >
                 私とお稲荷さんの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10845,10 +10172,6 @@ a {
             >
                 私の創作サイクルとスタイルの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10882,10 +10205,6 @@ a {
             >
                 左利きの話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10919,10 +10238,6 @@ a {
             >
                 2021を迎えて。
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10956,10 +10271,6 @@ a {
             >
                 2020、年末。
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -10993,10 +10304,6 @@ a {
             >
                 「好き」でいるということ
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -11030,10 +10337,6 @@ a {
             >
                 私と猫の話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -11067,10 +10370,6 @@ a {
             >
                 私と『書く』こと
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -11104,10 +10403,6 @@ a {
             >
                 「話をする」が嫌いな話
             </a>
-
-            <div class="article-meta">
-                <span>無料</span>
-            </div>
         </div>
 
         <div class="article-stats">
