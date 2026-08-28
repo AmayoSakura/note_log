@@ -1,6 +1,5 @@
 import json
 import html
-import re
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime, date, timedelta, timezone
@@ -56,17 +55,6 @@ def load_json(path, default):
 
 def esc(value):
     return html.escape(str(value or ""), quote=True)
-
-
-def clean_title(title):
-    """
-    Webツール経由で混入する可能性のある
-    不要なマーカーを除去。
-    """
-    title = str(title or "")
-    title = re.sub(r"【.*?】", "", title)
-    title = re.sub(r"\s+", " ", title)
-    return title.strip()
 
 
 def parse_date(value):
@@ -155,7 +143,7 @@ notes = sorted(
 
 # タイトルと数値を正規化
 for note in notes:
-    note["title"] = clean_title(note.get("title"))
+    note["title"] = str(note.get("title") or "").strip()
     note["likes"] = safe_int(note.get("likes"))
     note["comments"] = safe_int(note.get("comments"))
 
@@ -167,7 +155,7 @@ magazines = sorted(
 )
 
 for magazine in magazines:
-    magazine["title"] = clean_title(magazine.get("title"))
+    magazine["title"] = str(magazine.get("title") or "").strip()
     magazine["note_count"] = safe_int(magazine.get("note_count"))
     magazine["likes"] = safe_int(magazine.get("likes"))
 
@@ -761,7 +749,7 @@ popular_notes = sorted(
 popular_html = ""
 
 for index, note in enumerate(popular_notes, start=1):
-    title = clean_title(note.get("title"))
+    title = note.get("title", "")
     likes = safe_int(note.get("likes"))
     comments = safe_int(note.get("comments"))
 
@@ -830,7 +818,7 @@ if not magazines:
 article_rows = ""
 
 for note in notes:
-    title = clean_title(note.get("title"))
+    title = note.get("title", "")
     published = format_date(note.get("published_at"))
     month = format_month(note.get("published_at"))
     likes = safe_int(note.get("likes"))
