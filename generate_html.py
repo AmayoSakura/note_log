@@ -37,6 +37,8 @@ PURPLE_LIGHT = "#d9c3ac"
 PINK = "#f0e6db"
 RED = "#8a3a26"
 LINE = "#e0d5c8"
+HEAT_1 = "#e4d4bd"
+HEAT_2 = "#c9a578"
 
 # Dark mode palette (amexfuri.work .dark に準拠)
 DARK_BG = "#1c1613"
@@ -49,6 +51,24 @@ DARK_PURPLE_LIGHT = "#5a4735"
 DARK_PINK = "#332a24"
 DARK_RED = "#d68a6a"
 DARK_LINE = "#3d332c"
+DARK_HEAT_1 = "#4a3c2e"
+DARK_HEAT_2 = "#7a5f3f"
+
+
+def hex_to_rgb_str(hex_color):
+    """
+    '#faf7f5' -> '250, 247, 245'
+    rgba()内でCSS変数として使うための文字列に変換する。
+    """
+    h = hex_color.lstrip("#")
+    r = int(h[0:2], 16)
+    g = int(h[2:4], 16)
+    b = int(h[4:6], 16)
+    return f"{r}, {g}, {b}"
+
+
+PAPER_RGB = hex_to_rgb_str(PAPER)
+DARK_PAPER_RGB = hex_to_rgb_str(DARK_PAPER)
 
 # ------------------------------------------------------------
 # Utility
@@ -255,8 +275,8 @@ def make_line_chart(
     values,
     width=900,
     height=300,
-    stroke=PURPLE,
-    fill=PURPLE_LIGHT,
+    stroke="var(--purple)",
+    fill="var(--purple-light)",
     suffix=""
 ):
     if not values:
@@ -453,22 +473,22 @@ daily_posts = [
 followers_chart = make_line_chart(
     daily_labels,
     daily_followers,
-    stroke=PURPLE,
-    fill=PURPLE_LIGHT
+    stroke="var(--purple)",
+    fill="var(--purple-light)"
 )
 
 likes_chart = make_line_chart(
     daily_labels,
     daily_likes,
-    stroke=RED,
-    fill=PINK
+    stroke="var(--red)",
+    fill="var(--pink)"
 )
 
 posts_chart = make_line_chart(
     daily_labels,
     daily_posts,
-    stroke="#4f536d",
-    fill="#dfe2ef"
+    stroke="var(--muted)",
+    fill="var(--light)"
 )
 
 # ------------------------------------------------------------
@@ -970,7 +990,17 @@ content="width=device-width, initial-scale=1.0"
 
 >
 
-<title>{esc(PAGE_TITLE)}</title><meta
+<title>{esc(PAGE_TITLE)}</title><link
+    rel="icon"
+    type="image/svg+xml"
+    href="favicon.svg"
+><link
+    rel="alternate icon"
+    href="favicon.ico"
+><link
+    rel="apple-touch-icon"
+    href="favicon-180.png"
+><meta
 name="description"
 content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フォロワー、投稿活動の推移を記録しています。"
 
@@ -991,6 +1021,7 @@ content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フ�
 :root {{
     --bg: {BG};
     --paper: {PAPER};
+    --paper-rgb: {PAPER_RGB};
     --ink: {INK};
     --muted: {MUTED};
     --light: {LIGHT};
@@ -999,11 +1030,14 @@ content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フ�
     --pink: {PINK};
     --red: {RED};
     --line: {LINE};
+    --heat-1: {HEAT_1};
+    --heat-2: {HEAT_2};
 }}
 
 html.dark {{
     --bg: {DARK_BG};
     --paper: {DARK_PAPER};
+    --paper-rgb: {DARK_PAPER_RGB};
     --ink: {DARK_INK};
     --muted: {DARK_MUTED};
     --light: {DARK_LIGHT};
@@ -1012,6 +1046,8 @@ html.dark {{
     --pink: {DARK_PINK};
     --red: {DARK_RED};
     --line: {DARK_LINE};
+    --heat-1: {DARK_HEAT_1};
+    --heat-2: {DARK_HEAT_2};
 }}
 
 html {{
@@ -1354,7 +1390,7 @@ html.dark .theme-icon-dark {{
 }}
 
 .stat {{
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(var(--paper-rgb), 0.78);
 
     min-height: 150px;
 
@@ -1625,15 +1661,15 @@ html.dark .theme-icon-dark {{
 }}
 
 .heat-cell.level-0 {{
-    background: #eee9ef;
+    background: var(--line);
 }}
 
 .heat-cell.level-1 {{
-    background: #d7cbe7;
+    background: var(--heat-1);
 }}
 
 .heat-cell.level-2 {{
-    background: #a996ca;
+    background: var(--heat-2);
 }}
 
 .heat-cell.level-3 {{
@@ -1846,7 +1882,7 @@ html.dark .theme-icon-dark {{
 
     border: 1px solid var(--line);
 
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(var(--paper-rgb), 0.82);
 
     color: var(--ink);
 
@@ -1913,7 +1949,7 @@ html.dark .theme-icon-dark {{
 }}
 
 .article-row:hover {{
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(var(--paper-rgb), 0.72);
 
     padding-left: 14px;
 }}
@@ -1984,7 +2020,7 @@ html.dark .theme-icon-dark {{
 
     border: 1px solid var(--line);
 
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(var(--paper-rgb), 0.82);
 
     color: var(--ink);
 
