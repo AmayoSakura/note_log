@@ -746,6 +746,69 @@ popular_notes = sorted(
     reverse=True
 )[:5]
 
+# ------------------------------------------------------------
+# Popular: momentum diagnosis
+# 直近10本の平均スキ数 vs 全記事平均スキ数で「勢い」を診断する。
+# 単純な人気ランキングは古い記事が有利になりがちなため、
+# 「絶対値」ではなく「平均との比較」で最近の反応を見る。
+# ------------------------------------------------------------
+
+def diagnose_momentum(notes):
+    if len(notes) < 10:
+        return None
+
+    recent = notes[:10]
+
+    overall_avg = (
+        sum(safe_int(n.get("likes")) for n in notes) / len(notes)
+    )
+
+    recent_avg = (
+        sum(safe_int(n.get("likes")) for n in recent) / len(recent)
+    )
+
+    if overall_avg == 0:
+        return None
+
+    diff_ratio = (recent_avg - overall_avg) / overall_avg
+
+    if diff_ratio >= 0.15:
+        message = "直近10本の反応、全体平均より良好。今の書き方がハマってるみたい。"
+        mood = "up"
+    elif diff_ratio <= -0.15:
+        message = "直近10本はやや反応控えめ。テーマや切り口を変えてみる時期かも。"
+        mood = "down"
+    else:
+        message = "直近10本の反応は、これまでの平均と近い水準。安定した巡航中。"
+        mood = "flat"
+
+    return {
+        "message": message,
+        "mood": mood,
+        "recent_avg": round(recent_avg, 1),
+        "overall_avg": round(overall_avg, 1),
+    }
+
+momentum = diagnose_momentum(notes)
+
+if momentum:
+    momentum_html = f"""
+    <div class="momentum-memo momentum-{momentum['mood']}">
+        <div class="momentum-label">
+            📋 Momentum Check
+        </div>
+        <div class="momentum-text">
+            {esc(momentum['message'])}
+        </div>
+        <div class="momentum-sub">
+            直近10本 平均♥{momentum['recent_avg']}
+            ／ 全体平均 ♥{momentum['overall_avg']}
+        </div>
+    </div>
+    """
+else:
+    momentum_html = ""
+
 popular_html = ""
 
 for index, note in enumerate(popular_notes, start=1):
@@ -1487,6 +1550,55 @@ a {{
     display: flex;
 
     flex-direction: column;
+}}
+
+.momentum-memo {{
+    background: var(--paper);
+
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--muted);
+
+    padding: 18px 22px;
+
+    margin-bottom: 18px;
+}}
+
+.momentum-memo.momentum-up {{
+    border-left-color: var(--purple);
+}}
+
+.momentum-memo.momentum-down {{
+    border-left-color: var(--red);
+}}
+
+.momentum-label {{
+    font-size: 10px;
+
+    letter-spacing: 0.1em;
+
+    color: var(--muted);
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}}
+
+.momentum-text {{
+    font-family: 'Crimson Pro', Georgia, serif;
+
+    font-size: 15px;
+
+    color: var(--ink);
+
+    line-height: 1.6;
+}}
+
+.momentum-sub {{
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    color: var(--muted);
 }}
 
 .popular-item {{
@@ -2274,6 +2386,7 @@ a {{
 
 </div>
 
+{momentum_html}
 
 <div class="panel popular-list">
     {popular_html}
