@@ -92,6 +92,50 @@ def get_notes():
     return all_notes
 
 
+def get_magazines():
+    all_magazines = []
+
+    for page in range(1, 101):
+        url = f"{BASE_URL}/{USERNAME}/contents?kind=magazines&page={page}"
+
+        try:
+            data = fetch_json(url)["data"]
+        except Exception as e:
+            # マガジン取得に失敗しても記事データ収集自体は止めない
+            print(f"マガジン取得でエラー発生（page {page}）: {e}")
+            break
+
+        contents = data.get("contents", [])
+
+        if not contents:
+            break
+
+        for magazine in contents:
+            all_magazines.append({
+                "id": magazine.get("id"),
+                "key": magazine.get("key"),
+                "title": magazine.get("name"),
+                "description": magazine.get("description"),
+                "note_count": (
+                    magazine.get("noteCount")
+                    or magazine.get("notesCount")
+                    or 0
+                ),
+                "likes": magazine.get("likeCount", 0),
+                "is_default": magazine.get("isDefault", False),
+                "updated_at": magazine.get("updatedAt"),
+            })
+
+        print(f"マガジン取得: page {page} / 累計 {len(all_magazines)}件")
+
+        if data.get("isLastPage"):
+            break
+
+        time.sleep(1.0)
+
+    return all_magazines
+
+
 def save_daily_stats(creator, notes, today):
     history = load_json(DAILY_STATS_FILE, [])
 
@@ -172,6 +216,14 @@ def main():
 
     notes = get_notes()
 
+    print()
+
+    try:
+        magazines = get_magazines()
+    except Exception as e:
+        print(f"マガジン取得に失敗したため、マガジンデータなしで続行します: {e}")
+        magazines = []
+
     # 日本時間で今日の日付を記録
     now = datetime.now().astimezone()
     today = now.strftime("%Y-%m-%d")
@@ -181,6 +233,7 @@ def main():
         "fetched_at": now.isoformat(),
         "creator": creator,
         "notes": notes,
+        "magazines": magazines,
     }
 
     with open("note_data.json", "w", encoding="utf-8") as f:
@@ -192,6 +245,7 @@ def main():
 
     print()
     print(f"取得完了: {len(notes)}件")
+    print(f"マガジン取得完了: {len(magazines)}件")
     print("note_data.json を更新しました")
     print("data/daily_stats.json に履歴を保存しました")
     print("data/article_history.json に記事履歴を保存しました")
