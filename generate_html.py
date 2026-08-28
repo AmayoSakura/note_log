@@ -38,6 +38,18 @@ PINK = "#f0e6db"
 RED = "#8a3a26"
 LINE = "#e0d5c8"
 
+# Dark mode palette (amexfuri.work .dark に準拠)
+DARK_BG = "#1c1613"
+DARK_PAPER = "#27201c"
+DARK_INK = "#e8e0d4"
+DARK_MUTED = "#a89a8a"
+DARK_LIGHT = "#332a24"
+DARK_PURPLE = "#c4a076"
+DARK_PURPLE_LIGHT = "#5a4735"
+DARK_PINK = "#332a24"
+DARK_RED = "#d68a6a"
+DARK_LINE = "#3d332c"
+
 # ------------------------------------------------------------
 # Utility
 # ------------------------------------------------------------
@@ -941,7 +953,18 @@ for month in reversed(months):
 
 html_document = f"""<!DOCTYPE html>
 
-<html lang="ja"><head><meta charset="UTF-8"><meta
+<html lang="ja"><head><meta charset="UTF-8"><script>
+(function() {{
+    var stored = localStorage.getItem("theme");
+    var prefersDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (stored === "dark" || (!stored && prefersDark)) {{
+        document.documentElement.classList.add("dark");
+    }}
+}})();
+</script><meta
 name="viewport"
 content="width=device-width, initial-scale=1.0"
 
@@ -976,6 +999,25 @@ content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フ�
     --pink: {PINK};
     --red: {RED};
     --line: {LINE};
+}}
+
+html.dark {{
+    --bg: {DARK_BG};
+    --paper: {DARK_PAPER};
+    --ink: {DARK_INK};
+    --muted: {DARK_MUTED};
+    --light: {DARK_LIGHT};
+    --purple: {DARK_PURPLE};
+    --purple-light: {DARK_PURPLE_LIGHT};
+    --pink: {DARK_PINK};
+    --red: {DARK_RED};
+    --line: {DARK_LINE};
+}}
+
+html {{
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }}
 
 * {{
@@ -1037,6 +1079,72 @@ a {{
     align-items: flex-end;
 
     position: relative;
+}}
+
+.theme-toggle {{
+    position: absolute;
+    top: 28px;
+    right: 0;
+
+    appearance: none;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--paper);
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}}
+
+.theme-toggle:hover {{
+    border-color: var(--purple);
+
+    transform: rotate(12deg);
+}}
+
+.theme-toggle-icon {{
+    font-size: 16px;
+
+    color: var(--purple);
+
+    position: absolute;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}}
+
+.theme-icon-light {{
+    opacity: 1;
+    transform: scale(1);
+}}
+
+.theme-icon-dark {{
+    opacity: 0;
+    transform: scale(0.5);
+}}
+
+html.dark .theme-icon-light {{
+    opacity: 0;
+    transform: scale(0.5);
+}}
+
+html.dark .theme-icon-dark {{
+    opacity: 1;
+    transform: scale(1);
 }}
 
 .site-header::before {{
@@ -1560,7 +1668,7 @@ a {{
 
     padding: 18px 22px;
 
-    margin-bottom: 18px;
+    margin-top: 18px;
 }}
 
 .momentum-memo.momentum-up {{
@@ -1972,6 +2080,13 @@ a {{
         padding-top: 50px;
     }}
 
+    .theme-toggle {{
+        top: 18px;
+
+        width: 34px;
+        height: 34px;
+    }}
+
     .stats-grid {{
         grid-template-columns: repeat(2, 1fr);
     }}
@@ -2071,6 +2186,16 @@ a {{
     </a>
 
 </div>
+
+<button
+    type="button"
+    class="theme-toggle"
+    id="themeToggle"
+    aria-label="ダークモード切り替え"
+>
+    <span class="theme-toggle-icon theme-icon-light">☀</span>
+    <span class="theme-toggle-icon theme-icon-dark">☾</span>
+</button>
 
 </header><main><nav class="tab-nav" id="tabNav">
     <button type="button" class="tab-button" data-tab="overview">01 Overview</button>
@@ -2386,11 +2511,11 @@ a {{
 
 </div>
 
-{momentum_html}
-
 <div class="panel popular-list">
     {popular_html}
 </div>
+
+{momentum_html}
 
 </section><section
     class="section tab-panel"
@@ -2504,6 +2629,21 @@ a {{
 </footer></div><script>
 
 (function() {{
+
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+    if (themeToggle) {{
+        themeToggle.addEventListener("click", function() {{
+            const isDark =
+                document.documentElement.classList.toggle("dark");
+
+            localStorage.setItem(
+                "theme",
+                isDark ? "dark" : "light"
+            );
+        }});
+    }}
 
     const tabButtons = Array.from(
         document.querySelectorAll(".tab-button")
