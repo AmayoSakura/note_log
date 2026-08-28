@@ -17,7 +17,17 @@ content="width=device-width, initial-scale=1.0"
 
 >
 
-<title>NOTE LOG — Squall</title><meta
+<title>NOTE LOG — Squall</title><link
+    rel="icon"
+    type="image/svg+xml"
+    href="favicon.svg"
+><link
+    rel="alternate icon"
+    href="favicon.ico"
+><link
+    rel="apple-touch-icon"
+    href="favicon-180.png"
+><meta
 name="description"
 content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フォロワー、投稿活動の推移を記録しています。"
 
@@ -38,6 +48,7 @@ content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フ�
 :root {
     --bg: #f4efea;
     --paper: #faf7f5;
+    --paper-rgb: 250, 247, 245;
     --ink: #201812;
     --muted: #695444;
     --light: #ece4db;
@@ -46,11 +57,14 @@ content="桜星雨夜のnote活動ログ。記事、スキ、コメント、フ�
     --pink: #f0e6db;
     --red: #8a3a26;
     --line: #e0d5c8;
+    --heat-1: #e4d4bd;
+    --heat-2: #c9a578;
 }
 
 html.dark {
     --bg: #1c1613;
     --paper: #27201c;
+    --paper-rgb: 39, 32, 28;
     --ink: #e8e0d4;
     --muted: #a89a8a;
     --light: #332a24;
@@ -59,6 +73,8 @@ html.dark {
     --pink: #332a24;
     --red: #d68a6a;
     --line: #3d332c;
+    --heat-1: #4a3c2e;
+    --heat-2: #7a5f3f;
 }
 
 html {
@@ -401,7 +417,7 @@ html.dark .theme-icon-dark {
 }
 
 .stat {
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(var(--paper-rgb), 0.78);
 
     min-height: 150px;
 
@@ -672,15 +688,15 @@ html.dark .theme-icon-dark {
 }
 
 .heat-cell.level-0 {
-    background: #eee9ef;
+    background: var(--line);
 }
 
 .heat-cell.level-1 {
-    background: #d7cbe7;
+    background: var(--heat-1);
 }
 
 .heat-cell.level-2 {
-    background: #a996ca;
+    background: var(--heat-2);
 }
 
 .heat-cell.level-3 {
@@ -893,7 +909,7 @@ html.dark .theme-icon-dark {
 
     border: 1px solid var(--line);
 
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(var(--paper-rgb), 0.82);
 
     color: var(--ink);
 
@@ -960,7 +976,7 @@ html.dark .theme-icon-dark {
 }
 
 .article-row:hover {
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(var(--paper-rgb), 0.72);
 
     padding-left: 14px;
 }
@@ -1031,7 +1047,7 @@ html.dark .theme-icon-dark {
 
     border: 1px solid var(--line);
 
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(var(--paper-rgb), 0.82);
 
     color: var(--ink);
 
@@ -2971,12 +2987,12 @@ html.dark .theme-icon-dark {
             >
                 <stop
                     offset="0%"
-                    stop-color="#d9c3ac"
+                    stop-color="var(--purple-light)"
                     stop-opacity="0.42"
                 />
                 <stop
                     offset="100%"
-                    stop-color="#d9c3ac"
+                    stop-color="var(--purple-light)"
                     stop-opacity="0"
                 />
             </linearGradient>
@@ -3062,7 +3078,7 @@ html.dark .theme-icon-dark {
         <polyline
             points="48.0,142.0 880.0,142.0"
             fill="none"
-            stroke="#73482a"
+            stroke="var(--purple)"
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -3073,7 +3089,7 @@ html.dark .theme-icon-dark {
             cx="48.0"
             cy="142.0"
             r="3.5"
-            fill="#73482a"
+            fill="var(--purple)"
         >
             <title>81</title>
         </circle>
@@ -3082,7 +3098,7 @@ html.dark .theme-icon-dark {
             cx="880.0"
             cy="142.0"
             r="3.5"
-            fill="#73482a"
+            fill="var(--purple)"
         >
             <title>81</title>
         </circle>
@@ -3135,12 +3151,12 @@ html.dark .theme-icon-dark {
             >
                 <stop
                     offset="0%"
-                    stop-color="#f0e6db"
+                    stop-color="var(--pink)"
                     stop-opacity="0.42"
                 />
                 <stop
                     offset="100%"
-                    stop-color="#f0e6db"
+                    stop-color="var(--pink)"
                     stop-opacity="0"
                 />
             </linearGradient>
@@ -3226,7 +3242,7 @@ html.dark .theme-icon-dark {
         <polyline
             points="48.0,260.0 880.0,24.0"
             fill="none"
-            stroke="#8a3a26"
+            stroke="var(--red)"
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -3237,7 +3253,7 @@ html.dark .theme-icon-dark {
             cx="48.0"
             cy="260.0"
             r="3.5"
-            fill="#8a3a26"
+            fill="var(--red)"
         >
             <title>1681</title>
         </circle>
@@ -3246,7 +3262,7 @@ html.dark .theme-icon-dark {
             cx="880.0"
             cy="24.0"
             r="3.5"
-            fill="#8a3a26"
+            fill="var(--red)"
         >
             <title>1682</title>
         </circle>
@@ -3304,12 +3320,12 @@ html.dark .theme-icon-dark {
             >
                 <stop
                     offset="0%"
-                    stop-color="#dfe2ef"
+                    stop-color="var(--light)"
                     stop-opacity="0.42"
                 />
                 <stop
                     offset="100%"
-                    stop-color="#dfe2ef"
+                    stop-color="var(--light)"
                     stop-opacity="0"
                 />
             </linearGradient>
@@ -3395,7 +3411,7 @@ html.dark .theme-icon-dark {
         <polyline
             points="48.0,142.0 880.0,142.0"
             fill="none"
-            stroke="#4f536d"
+            stroke="var(--muted)"
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -3406,7 +3422,7 @@ html.dark .theme-icon-dark {
             cx="48.0"
             cy="142.0"
             r="3.5"
-            fill="#4f536d"
+            fill="var(--muted)"
         >
             <title>217</title>
         </circle>
@@ -3415,7 +3431,7 @@ html.dark .theme-icon-dark {
             cx="880.0"
             cy="142.0"
             r="3.5"
-            fill="#4f536d"
+            fill="var(--muted)"
         >
             <title>217</title>
         </circle>
