@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-28T03:13:24.723707+00:00",
+  "fetched_at": "2026-08-28T03:26:16.424071+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
@@ -2080,5 +2080,46 @@
       "type": "TextNote"
     }
   ],
-  "magazines": []
+  "magazines": [
+    {
+      "id": 9988371,
+      "key": "m208424fa13e4",
+      "title": "【デジタルツール】",
+      "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
+      "note_count": 32,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
+      "id": 7221129,
+      "key": "mc3fbb7be0052",
+      "title": "【創作活動】",
+      "description": "一次創作関連の記事をまとめています。",
+      "note_count": 47,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
+      "id": 7221163,
+      "key": "m391a6a9d1fe5",
+      "title": "【買ったもの】",
+      "description": "ガジェットをメインとした買い物記録。",
+      "note_count": 22,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
+      "id": 7735717,
+      "key": "m718db05db3b5",
+      "title": "【万年筆】",
+      "description": "万年筆の話まとめ。",
+      "note_count": 39,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    }
+  ]
 }
