@@ -611,6 +611,55 @@ a {
     flex-direction: column;
 }
 
+.momentum-memo {
+    background: var(--paper);
+
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--muted);
+
+    padding: 18px 22px;
+
+    margin-bottom: 18px;
+}
+
+.momentum-memo.momentum-up {
+    border-left-color: var(--purple);
+}
+
+.momentum-memo.momentum-down {
+    border-left-color: var(--red);
+}
+
+.momentum-label {
+    font-size: 10px;
+
+    letter-spacing: 0.1em;
+
+    color: var(--muted);
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.momentum-text {
+    font-family: 'Crimson Pro', Georgia, serif;
+
+    font-size: 15px;
+
+    color: var(--ink);
+
+    line-height: 1.6;
+}
+
+.momentum-sub {
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
 .popular-item {
     display: grid;
 
@@ -1153,7 +1202,7 @@ a {
         </div>
 
         <div class="stat-value">
-            1681
+            1682
             <span class="stat-unit">
                 ♥
             </span>
@@ -1173,7 +1222,7 @@ a {
         </div>
 
         <div class="stat-value">
-            54
+            55
             <span class="stat-unit">
                 comments
             </span>
@@ -3025,7 +3074,7 @@ a {
             y="146.0"
             class="chart-axis"
             text-anchor="end"
-        >1681</text>
+        >1682</text>
         
         <line
             x1="48"
@@ -3039,7 +3088,7 @@ a {
             y="205.0"
             class="chart-axis"
             text-anchor="end"
-        >1680</text>
+        >1681</text>
         
         <line
             x1="48"
@@ -3053,16 +3102,16 @@ a {
             y="264.0"
             class="chart-axis"
             text-anchor="end"
-        >1680</text>
+        >1681</text>
         
 
         <polygon
-            points="48,260 48.0,142.0 880.0,142.0 880.0,260"
+            points="48,260 48.0,260.0 880.0,24.0 880.0,260"
             fill="url(#chartFill)"
         />
 
         <polyline
-            points="48.0,142.0 880.0,142.0"
+            points="48.0,260.0 880.0,24.0"
             fill="none"
             stroke="#8a3a26"
             stroke-width="2.5"
@@ -3073,7 +3122,7 @@ a {
         
         <circle
             cx="48.0"
-            cy="142.0"
+            cy="260.0"
             r="3.5"
             fill="#8a3a26"
         >
@@ -3082,11 +3131,11 @@ a {
         
         <circle
             cx="880.0"
-            cy="142.0"
+            cy="24.0"
             r="3.5"
             fill="#8a3a26"
         >
-            <title>1681</title>
+            <title>1682</title>
         </circle>
         
         
@@ -3294,6 +3343,20 @@ a {
 
 </div>
 
+
+    <div class="momentum-memo momentum-flat">
+        <div class="momentum-label">
+            📋 Momentum Check
+        </div>
+        <div class="momentum-text">
+            直近10本の反応は、これまでの平均と近い水準。安定した巡航中。
+        </div>
+        <div class="momentum-sub">
+            直近10本 平均♥7.2
+            ／ 全体平均 ♥8.1
+        </div>
+    </div>
+    
 
 <div class="panel popular-list">
     
@@ -3682,8 +3745,8 @@ a {
         class="article-row"
         data-title="aiと遊ぼう！"
         data-month="2026.08"
-        data-likes="10"
-        data-comments="0"
+        data-likes="11"
+        data-comments="1"
     >
         <div class="article-date">
             2026.08.22
@@ -3702,11 +3765,11 @@ a {
 
         <div class="article-stats">
             <span class="like-stat">
-                ♥ 10
+                ♥ 11
             </span>
 
             <span class="comment-stat">
-                💬 0
+                💬 1
             </span>
         </div>
     </article>
