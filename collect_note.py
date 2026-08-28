@@ -1,5 +1,6 @@
 import json
 import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -96,12 +97,23 @@ def get_magazines():
     all_magazines = []
 
     for page in range(1, 101):
-        url = f"{BASE_URL}/{USERNAME}/contents?kind=magazines&page={page}"
+        url = f"{BASE_URL}/{USERNAME}/contents?kind=magazine&page={page}"
 
         try:
             data = fetch_json(url)["data"]
-        except Exception as e:
+        except urllib.error.HTTPError as e:
             # マガジン取得に失敗しても記事データ収集自体は止めない
+            body = ""
+            try:
+                body = e.read().decode("utf-8")[:300]
+            except Exception:
+                pass
+            print(
+                f"マガジン取得でエラー発生（page {page}）: "
+                f"HTTP {e.code} {e.reason} / body: {body}"
+            )
+            break
+        except Exception as e:
             print(f"マガジン取得でエラー発生（page {page}）: {e}")
             break
 
