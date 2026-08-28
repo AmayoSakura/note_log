@@ -117,6 +117,16 @@ def note_url(note):
     return NOTE_URL
 
 
+def magazine_url(magazine):
+    key = magazine.get("key")
+    urlname = creator.get("urlname")
+
+    if key and urlname:
+        return f"https://note.com/{urlname}/m/{key}"
+
+    return NOTE_URL
+
+
 def safe_int(value):
     try:
         return int(value or 0)
@@ -134,6 +144,7 @@ article_history = load_json(ARTICLE_HISTORY_FILE, {})
 
 creator = note_data.get("creator", {})
 notes = note_data.get("notes", [])
+magazines = note_data.get("magazines", [])
 
 # 最新順
 notes = sorted(
@@ -147,6 +158,18 @@ for note in notes:
     note["title"] = clean_title(note.get("title"))
     note["likes"] = safe_int(note.get("likes"))
     note["comments"] = safe_int(note.get("comments"))
+
+# マガジンは記事数の多い順
+magazines = sorted(
+    magazines,
+    key=lambda x: safe_int(x.get("note_count")),
+    reverse=True
+)
+
+for magazine in magazines:
+    magazine["title"] = clean_title(magazine.get("title"))
+    magazine["note_count"] = safe_int(magazine.get("note_count"))
+    magazine["likes"] = safe_int(magazine.get("likes"))
 
 daily_stats = sorted(
     daily_stats,
@@ -765,6 +788,42 @@ for index, note in enumerate(popular_notes, start=1):
     """
 
 # ------------------------------------------------------------
+# Magazines
+# ------------------------------------------------------------
+
+magazine_cards = ""
+
+for magazine in magazines:
+    title = magazine.get("title") or "（無題のマガジン）"
+    note_count = magazine.get("note_count", 0)
+    likes = magazine.get("likes", 0)
+
+    magazine_cards += f"""
+    <a
+        class="magazine-card"
+        href="{esc(magazine_url(magazine))}"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <div class="magazine-title">
+            {esc(title)}
+        </div>
+
+        <div class="magazine-meta">
+            <span>{note_count}本収録</span>
+            <span>♥ {likes}</span>
+        </div>
+    </a>
+    """
+
+if not magazines:
+    magazine_cards = """
+    <div class="empty-chart">
+        マガジンがまだありません。
+    </div>
+    """
+
+# ------------------------------------------------------------
 # Article list
 # ------------------------------------------------------------
 
@@ -776,9 +835,6 @@ for note in notes:
     month = format_month(note.get("published_at"))
     likes = safe_int(note.get("likes"))
     comments = safe_int(note.get("comments"))
-    price = safe_int(note.get("price"))
-
-    article_type = "有料" if price > 0 else "無料"
 
     article_rows += f"""
     <article
@@ -801,10 +857,6 @@ for note in notes:
             >
                 {esc(title)}
             </a>
-
-            <div class="article-meta">
-                <span>{article_type}</span>
-            </div>
         </div>
 
         <div class="article-stats">
@@ -1506,6 +1558,70 @@ a {{
         sans-serif;
 }}
 
+.magazine-grid {{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+    gap: 12px;
+
+    margin-top: 6px;
+
+    min-width: 0;
+}}
+
+.magazine-card {{
+    display: block;
+
+    background: var(--bg);
+
+    border: 1px solid var(--line);
+
+    border-radius: 4px;
+
+    padding: 16px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    min-width: 0;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}}
+
+.magazine-card:hover {{
+    border-color: var(--purple);
+
+    transform: translateY(-2px);
+}}
+
+.magazine-title {{
+    font-family: 'Crimson Pro', Georgia, serif;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: var(--ink);
+
+    overflow-wrap: break-word;
+}}
+
+.magazine-meta {{
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+
+    font-size: 11px;
+
+    color: var(--muted);
+}}
+
 .filters {{
     display: flex;
 
@@ -1612,16 +1728,6 @@ a {{
 
 .article-title:hover {{
     color: var(--purple);
-}}
-
-.article-meta {{
-    margin-top: 5px;
-
-    color: var(--muted);
-
-    font-size: 9px;
-
-    letter-spacing: 0.08em;
 }}
 
 .article-stats {{
@@ -1967,6 +2073,23 @@ a {{
             average {average_comments} / article
         </div>
 
+    </div>
+
+</div>
+
+
+<div class="panel" style="margin-top:32px;">
+
+    <h3 class="panel-title">
+        Magazines
+    </h3>
+
+    <p class="panel-caption">
+        マガジン一覧（収録本数順）
+    </p>
+
+    <div class="magazine-grid">
+        {magazine_cards}
     </div>
 
 </div>
