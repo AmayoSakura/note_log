@@ -23,11 +23,30 @@ DAILY_STATS_FILE = DATA_DIR / "daily_stats.json"
 ARTICLE_HISTORY_FILE = DATA_DIR / "article_history.json"
 
 
-def fetch_json(url):
-    request = urllib.request.Request(url, headers=HEADERS)
+def fetch_json(url, max_retries=3):
+    last_error = None
 
-    with urllib.request.urlopen(request, timeout=20) as response:
-        return json.loads(response.read().decode("utf-8"))
+    for attempt in range(1, max_retries + 1):
+        try:
+            request = urllib.request.Request(url, headers=HEADERS)
+
+            with urllib.request.urlopen(request, timeout=20) as response:
+                return json.loads(response.read().decode("utf-8"))
+
+        except (urllib.error.URLError, ConnectionError, TimeoutError) as e:
+            last_error = e
+
+            if attempt < max_retries:
+                wait = 3 * attempt
+                print(
+                    f"通信エラー（{attempt}/{max_retries}回目）: {e} "
+                    f"/ {wait}秒待って再試行します"
+                )
+                time.sleep(wait)
+            else:
+                print(f"通信エラー（最終試行失敗）: {e}")
+
+    raise last_error
 
 
 def load_json(path, default):
@@ -61,14 +80,24 @@ def get_creator():
 
 def get_notes():
     all_notes = []
+    completed = False
 
     for page in range(1, 101):
         url = f"{BASE_URL}/{USERNAME}/contents?kind=note&page={page}"
 
-        data = fetch_json(url)["data"]
+        try:
+            data = fetch_json(url)["data"]
+        except Exception as e:
+            print(
+                f"記事取得でエラー発生（page {page}）: {e} "
+                f"/ ここまでに取得した{len(all_notes)}件で打ち切ります"
+            )
+            break
+
         contents = data.get("contents", [])
 
         if not contents:
+            completed = True
             break
 
         for note in contents:
@@ -86,11 +115,12 @@ def get_notes():
         print(f"記事取得: page {page} / 累計 {len(all_notes)}件")
 
         if data.get("isLastPage"):
+            completed = True
             break
 
-        time.sleep(1.0)
+        time.sleep(1.5)
 
-    return all_notes
+    return all_notes, completed
 
 
 def get_magazines():
@@ -143,7 +173,7 @@ def get_magazines():
         if data.get("isLastPage"):
             break
 
-        time.sleep(1.0)
+        time.sleep(1.5)
 
     return all_magazines
 
@@ -226,9 +256,27 @@ def main():
     print(f"記事数: {creator['noteCount']}")
     print()
 
-    notes = get_notes()
+    notes, completed = get_notes()
 
     print()
+
+    if not completed:
+        previous = load_json(Path("note_data.json"), {})
+        previous_notes = previous.get("notes", [])
+
+        fetched_ids = {n.get("id") for n in notes}
+
+        missing_notes = [
+            n for n in previous_notes
+            if n.get("id") not in fetched_ids
+        ]
+
+        if missing_notes:
+            print(
+                f"記事取得が途中で打ち切られたため、"
+                f"前回データから{len(missing_notes)}件を補完します"
+            )
+            notes = notes + missing_notes
 
     try:
         magazines = get_magazines()
@@ -256,7 +304,7 @@ def main():
     save_article_history(notes, today)
 
     print()
-    print(f"取得完了: {len(notes)}件")
+    print(f"取得完了: {len(notes)}件（記事取得{'完走' if completed else '途中打ち切り、前回データで補完'}）")
     print(f"マガジン取得完了: {len(magazines)}件")
     print("note_data.json を更新しました")
     print("data/daily_stats.json に履歴を保存しました")
