@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-31T13:45:47.692474+00:00",
+  "fetched_at": "2026-09-01T11:38:00.659075+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
@@ -10,11 +10,11 @@
   },
   "notes": [
     {
-      "id": 121886231,
-      "key": "n05677ad93c3c",
-      "title": "自己紹介兼noteマップ(2026/6/6更新)",
-      "published_at": "2025-08-10T18:26:03+09:00",
-      "likes": 27,
+      "id": 174967194,
+      "key": "ne4c3393718d8",
+      "title": "【Webツール】ブラウザだけで本になる！無料組版ツール「言ノ葉Editer」",
+      "published_at": "2026-08-15T13:54:07+09:00",
+      "likes": 16,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -24,7 +24,7 @@
       "key": "nc8985102b4df",
       "title": "久々のインク購入",
       "published_at": "2026-08-30T12:34:08+09:00",
-      "likes": 2,
+      "likes": 3,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -55,16 +55,6 @@
       "title": "言ノ葉Editerの裏話をしよう",
       "published_at": "2026-08-19T08:31:24+09:00",
       "likes": 7,
-      "comments": 0,
-      "price": 0,
-      "type": "TextNote"
-    },
-    {
-      "id": 174967194,
-      "key": "ne4c3393718d8",
-      "title": "【Webツール】ブラウザだけで本になる！無料組版ツール「言ノ葉Editer」",
-      "published_at": "2026-08-15T13:54:07+09:00",
-      "likes": 16,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -424,7 +414,7 @@
       "key": "n93e6577d2e4d",
       "title": "手持ちインクを並べる～紫編～",
       "published_at": "2026-03-22T15:26:38+09:00",
-      "likes": 14,
+      "likes": 15,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -1015,6 +1005,16 @@
       "title": "LIGHTIVEはやっぱりすごい",
       "published_at": "2025-08-13T12:37:21+09:00",
       "likes": 7,
+      "comments": 0,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 121886231,
+      "key": "n05677ad93c3c",
+      "title": "自己紹介兼noteマップ(2026/6/6更新)",
+      "published_at": "2025-08-10T18:26:03+09:00",
+      "likes": 27,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
