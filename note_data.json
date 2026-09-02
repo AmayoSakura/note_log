@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-09-01T11:38:00.659075+00:00",
+  "fetched_at": "2026-09-02T11:16:09.093221+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 79,
+    "followerCount": 80,
     "followingCount": 37,
-    "noteCount": 218,
+    "noteCount": 219,
     "magazineCount": 4
   },
   "notes": [
@@ -14,7 +14,17 @@
       "key": "ne4c3393718d8",
       "title": "【Webツール】ブラウザだけで本になる！無料組版ツール「言ノ葉Editer」",
       "published_at": "2026-08-15T13:54:07+09:00",
-      "likes": 16,
+      "likes": 17,
+      "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 177740066,
+      "key": "n77bb32e04281",
+      "title": "近況徒然",
+      "published_at": "2026-09-02T08:03:12+09:00",
+      "likes": 3,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -24,7 +34,7 @@
       "key": "nc8985102b4df",
       "title": "久々のインク購入",
       "published_at": "2026-08-30T12:34:08+09:00",
-      "likes": 3,
+      "likes": 5,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -34,7 +44,7 @@
       "key": "n045f3c66f9b2",
       "title": "2027年の手帳を決める（暫定）",
       "published_at": "2026-08-26T08:38:26+09:00",
-      "likes": 8,
+      "likes": 9,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
