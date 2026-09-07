@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-09-06T10:54:55.401512+00:00",
+  "fetched_at": "2026-09-07T12:29:16.730128+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 81,
+    "followerCount": 83,
     "followingCount": 36,
     "noteCount": 220,
     "magazineCount": 4
@@ -24,7 +24,7 @@
       "key": "n506b2d0070c8",
       "title": "2027年の手帳を買った（確定）",
       "published_at": "2026-09-06T08:59:31+09:00",
-      "likes": 11,
+      "likes": 21,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -34,7 +34,7 @@
       "key": "n77bb32e04281",
       "title": "近況徒然",
       "published_at": "2026-09-02T08:03:12+09:00",
-      "likes": 4,
+      "likes": 5,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -174,7 +174,7 @@
       "key": "n77985ffaeb5a",
       "title": "ソシャゲがしんどくなっていく",
       "published_at": "2026-07-12T12:00:50+09:00",
-      "likes": 19,
+      "likes": 20,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -314,7 +314,7 @@
       "key": "n06b2c6f61906",
       "title": "そしてお迎え",
       "published_at": "2026-05-13T07:42:14+09:00",
-      "likes": 17,
+      "likes": 18,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
