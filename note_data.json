@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-09-07T12:29:16.730128+00:00",
+  "fetched_at": "2026-09-08T11:16:49.888481+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 83,
+    "followerCount": 84,
     "followingCount": 36,
     "noteCount": 220,
     "magazineCount": 4
@@ -24,7 +24,7 @@
       "key": "n506b2d0070c8",
       "title": "2027年の手帳を買った（確定）",
       "published_at": "2026-09-06T08:59:31+09:00",
-      "likes": 21,
+      "likes": 26,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -34,7 +34,7 @@
       "key": "n77bb32e04281",
       "title": "近況徒然",
       "published_at": "2026-09-02T08:03:12+09:00",
-      "likes": 5,
+      "likes": 7,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -64,7 +64,7 @@
       "key": "n15201d728875",
       "title": "AIと遊ぼう！",
       "published_at": "2026-08-22T09:42:05+09:00",
-      "likes": 11,
+      "likes": 12,
       "comments": 2,
       "price": 0,
       "type": "TextNote"
