@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-09-08T11:16:49.888481+00:00",
+  "fetched_at": "2026-09-09T11:20:53.507462+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 84,
-    "followingCount": 36,
-    "noteCount": 220,
+    "followingCount": 37,
+    "noteCount": 221,
     "magazineCount": 4
   },
   "notes": [
@@ -20,11 +20,21 @@
       "type": "TextNote"
     },
     {
+      "id": 179218123,
+      "key": "n7f794cacd03a",
+      "title": "新しいインクと遊ぼう！",
+      "published_at": "2026-09-09T07:35:35+09:00",
+      "likes": 8,
+      "comments": 0,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
       "id": 178578794,
       "key": "n506b2d0070c8",
       "title": "2027年の手帳を買った（確定）",
       "published_at": "2026-09-06T08:59:31+09:00",
-      "likes": 26,
+      "likes": 28,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -624,7 +634,7 @@
       "key": "ne09330bb1158",
       "title": "2026年も手帳を書く",
       "published_at": "2026-01-07T06:40:12+09:00",
-      "likes": 9,
+      "likes": 10,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -2112,21 +2122,21 @@
   ],
   "magazines": [
     {
-      "id": 7221163,
-      "key": "m391a6a9d1fe5",
-      "title": "【買ったもの】",
-      "description": "ガジェットをメインとした買い物記録。",
-      "note_count": 23,
+      "id": 7735717,
+      "key": "m718db05db3b5",
+      "title": "【万年筆】",
+      "description": "万年筆の話まとめ。",
+      "note_count": 41,
       "likes": 0,
       "is_default": false,
       "updated_at": null
     },
     {
-      "id": 7735717,
-      "key": "m718db05db3b5",
-      "title": "【万年筆】",
-      "description": "万年筆の話まとめ。",
-      "note_count": 40,
+      "id": 7221163,
+      "key": "m391a6a9d1fe5",
+      "title": "【買ったもの】",
+      "description": "ガジェットをメインとした買い物記録。",
+      "note_count": 23,
       "likes": 0,
       "is_default": false,
       "updated_at": null
