@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-09-09T11:20:53.507462+00:00",
+  "fetched_at": "2026-09-10T11:17:25.586327+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 84,
     "followingCount": 37,
-    "noteCount": 221,
+    "noteCount": 222,
     "magazineCount": 4
   },
   "notes": [
@@ -20,11 +20,21 @@
       "type": "TextNote"
     },
     {
+      "id": 179536934,
+      "key": "n741e8d5df818",
+      "title": "創作大賞中間選考通ってた",
+      "published_at": "2026-09-10T19:22:57+09:00",
+      "likes": 2,
+      "comments": 1,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
       "id": 179218123,
       "key": "n7f794cacd03a",
       "title": "新しいインクと遊ぼう！",
       "published_at": "2026-09-09T07:35:35+09:00",
-      "likes": 8,
+      "likes": 10,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -34,7 +44,7 @@
       "key": "n506b2d0070c8",
       "title": "2027年の手帳を買った（確定）",
       "published_at": "2026-09-06T08:59:31+09:00",
-      "likes": 28,
+      "likes": 29,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
