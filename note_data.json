@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-09-10T11:17:25.586327+00:00",
+  "fetched_at": "2026-09-11T11:18:43.070061+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 84,
     "followingCount": 37,
-    "noteCount": 222,
+    "noteCount": 223,
     "magazineCount": 4
   },
   "notes": [
@@ -24,8 +24,8 @@
       "key": "n741e8d5df818",
       "title": "創作大賞中間選考通ってた",
       "published_at": "2026-09-10T19:22:57+09:00",
-      "likes": 2,
-      "comments": 1,
+      "likes": 21,
+      "comments": 4,
       "price": 0,
       "type": "TextNote"
     },
@@ -34,7 +34,7 @@
       "key": "n7f794cacd03a",
       "title": "新しいインクと遊ぼう！",
       "published_at": "2026-09-09T07:35:35+09:00",
-      "likes": 10,
+      "likes": 13,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -194,7 +194,7 @@
       "key": "n77985ffaeb5a",
       "title": "ソシャゲがしんどくなっていく",
       "published_at": "2026-07-12T12:00:50+09:00",
-      "likes": 20,
+      "likes": 21,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -344,7 +344,7 @@
       "key": "ne6d0650d9b3a",
       "title": "CRACK＼DECODE",
       "published_at": "2026-05-10T17:07:15+09:00",
-      "likes": 3,
+      "likes": 4,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -2132,6 +2132,16 @@
   ],
   "magazines": [
     {
+      "id": 7221129,
+      "key": "mc3fbb7be0052",
+      "title": "【創作活動】",
+      "description": "一次創作関連の記事をまとめています。",
+      "note_count": 48,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
       "id": 7735717,
       "key": "m718db05db3b5",
       "title": "【万年筆】",
@@ -2157,16 +2167,6 @@
       "title": "【デジタルツール】",
       "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
       "note_count": 32,
-      "likes": 0,
-      "is_default": false,
-      "updated_at": null
-    },
-    {
-      "id": 7221129,
-      "key": "mc3fbb7be0052",
-      "title": "【創作活動】",
-      "description": "一次創作関連の記事をまとめています。",
-      "note_count": 47,
       "likes": 0,
       "is_default": false,
       "updated_at": null
