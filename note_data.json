@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-09-13T11:49:37.362887+00:00",
+  "fetched_at": "2026-09-14T12:43:11.306890+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 84,
+    "followerCount": 85,
     "followingCount": 37,
     "noteCount": 223,
     "magazineCount": 4
@@ -20,11 +20,21 @@
       "type": "TextNote"
     },
     {
+      "id": 180186302,
+      "key": "n32464b4097dc",
+      "title": "【Webツール】ヘッダー用に写真に文字を入れるだけのツール作った",
+      "published_at": "2026-09-14T18:33:51+09:00",
+      "likes": 0,
+      "comments": 0,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
       "id": 179536934,
       "key": "n741e8d5df818",
       "title": "創作大賞中間選考通ってた",
       "published_at": "2026-09-10T19:22:57+09:00",
-      "likes": 23,
+      "likes": 24,
       "comments": 4,
       "price": 0,
       "type": "TextNote"
@@ -2132,6 +2142,16 @@
   ],
   "magazines": [
     {
+      "id": 9988371,
+      "key": "m208424fa13e4",
+      "title": "【デジタルツール】",
+      "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
+      "note_count": 33,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
       "id": 7221129,
       "key": "mc3fbb7be0052",
       "title": "【創作活動】",
@@ -2157,16 +2177,6 @@
       "title": "【買ったもの】",
       "description": "ガジェットをメインとした買い物記録。",
       "note_count": 23,
-      "likes": 0,
-      "is_default": false,
-      "updated_at": null
-    },
-    {
-      "id": 9988371,
-      "key": "m208424fa13e4",
-      "title": "【デジタルツール】",
-      "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
-      "note_count": 32,
       "likes": 0,
       "is_default": false,
       "updated_at": null
