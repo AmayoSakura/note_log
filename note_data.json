@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-09-17T11:39:46.495758+00:00",
+  "fetched_at": "2026-09-18T11:12:06.488298+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 86,
     "followingCount": 37,
-    "noteCount": 223,
+    "noteCount": 224,
     "magazineCount": 4
   },
   "notes": [
@@ -16,6 +16,16 @@
       "published_at": "2026-08-15T13:54:07+09:00",
       "likes": 21,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 180184288,
+      "key": "ndf6a239345b7",
+      "title": "雑記：ツールを提供するということ",
+      "published_at": "2026-09-18T07:12:15+09:00",
+      "likes": 2,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
