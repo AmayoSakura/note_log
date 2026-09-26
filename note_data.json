@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-25T11:49:11.232384+00:00",
+  "fetched_at": "2026-09-26T11:22:47.078887+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
@@ -24,8 +24,8 @@
       "key": "n8ce7e49ecc53",
       "title": "万年筆のお迎え（チャレンジ編）",
       "published_at": "2026-09-23T16:03:20+09:00",
-      "likes": 22,
-      "comments": 1,
+      "likes": 23,
+      "comments": 2,
       "price": 0,
       "type": "TextNote"
     },
@@ -74,7 +74,7 @@
       "key": "n506b2d0070c8",
       "title": "2027年の手帳を買った（確定）",
       "published_at": "2026-09-06T08:59:31+09:00",
-      "likes": 31,
+      "likes": 32,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -94,8 +94,8 @@
       "key": "nc8985102b4df",
       "title": "久々のインク購入",
       "published_at": "2026-08-30T12:34:08+09:00",
-      "likes": 9,
-      "comments": 0,
+      "likes": 10,
+      "comments": 1,
       "price": 0,
       "type": "TextNote"
     },
@@ -1082,7 +1082,7 @@
     {
       "id": 121886231,
       "key": "n05677ad93c3c",
-      "title": "自己紹介兼noteマップ(2026/6/6更新)",
+      "title": "自己紹介兼noteマップ(2026/9/25更新)",
       "published_at": "2025-08-10T18:26:03+09:00",
       "likes": 27,
       "comments": 0,
