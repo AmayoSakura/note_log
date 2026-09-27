@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-09-26T11:22:47.078887+00:00",
+  "fetched_at": "2026-09-27T12:00:10.782265+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 86,
     "followingCount": 37,
-    "noteCount": 225,
+    "noteCount": 226,
     "magazineCount": 4
   },
   "notes": [
@@ -54,7 +54,7 @@
       "key": "n741e8d5df818",
       "title": "創作大賞中間選考通ってた",
       "published_at": "2026-09-10T19:22:57+09:00",
-      "likes": 26,
+      "likes": 27,
       "comments": 4,
       "price": 0,
       "type": "TextNote"
@@ -624,7 +624,7 @@
       "key": "ncf75cf59717c",
       "title": "新年インク（ということにする）",
       "published_at": "2026-01-25T10:25:26+09:00",
-      "likes": 16,
+      "likes": 15,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
