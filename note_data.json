@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-09-29T12:50:19.362534+00:00",
+  "fetched_at": "2026-09-30T12:32:23.772948+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 86,
     "followingCount": 37,
-    "noteCount": 226,
+    "noteCount": 227,
     "magazineCount": 4
   },
   "notes": [
@@ -20,11 +20,21 @@
       "type": "TextNote"
     },
     {
+      "id": 182908087,
+      "key": "nbef5e8dfc638",
+      "title": "【言ノ葉エディタ】目次作成に対応しました",
+      "published_at": "2026-09-30T06:49:04+09:00",
+      "likes": 3,
+      "comments": 0,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
       "id": 181760306,
       "key": "n8ce7e49ecc53",
       "title": "万年筆のお迎え（チャレンジ編）",
       "published_at": "2026-09-23T16:03:20+09:00",
-      "likes": 25,
+      "likes": 26,
       "comments": 2,
       "price": 0,
       "type": "TextNote"
@@ -224,7 +234,7 @@
       "key": "n77985ffaeb5a",
       "title": "ソシャゲがしんどくなっていく",
       "published_at": "2026-07-12T12:00:50+09:00",
-      "likes": 23,
+      "likes": 24,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -2162,21 +2172,11 @@
   ],
   "magazines": [
     {
-      "id": 7735717,
-      "key": "m718db05db3b5",
-      "title": "【万年筆】",
-      "description": "万年筆の話まとめ。",
-      "note_count": 42,
-      "likes": 0,
-      "is_default": false,
-      "updated_at": null
-    },
-    {
       "id": 9988371,
       "key": "m208424fa13e4",
       "title": "【デジタルツール】",
       "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
-      "note_count": 33,
+      "note_count": 34,
       "likes": 0,
       "is_default": false,
       "updated_at": null
@@ -2186,7 +2186,17 @@
       "key": "mc3fbb7be0052",
       "title": "【創作活動】",
       "description": "一次創作関連の記事をまとめています。",
-      "note_count": 48,
+      "note_count": 49,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
+      "id": 7735717,
+      "key": "m718db05db3b5",
+      "title": "【万年筆】",
+      "description": "万年筆の話まとめ。",
+      "note_count": 42,
       "likes": 0,
       "is_default": false,
       "updated_at": null
