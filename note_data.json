@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-10-03T11:37:49.443208+00:00",
+  "fetched_at": "2026-10-04T12:19:34.805878+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 87,
     "followingCount": 37,
-    "noteCount": 227,
+    "noteCount": 228,
     "magazineCount": 4
   },
   "notes": [
@@ -16,6 +16,16 @@
       "published_at": "2026-08-15T13:54:07+09:00",
       "likes": 21,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 183456259,
+      "key": "nc3859711af51",
+      "title": "創作月報：2026/09",
+      "published_at": "2026-10-04T07:13:55+09:00",
+      "likes": 1,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
@@ -2172,21 +2182,21 @@
   ],
   "magazines": [
     {
-      "id": 9988371,
-      "key": "m208424fa13e4",
-      "title": "【デジタルツール】",
-      "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
-      "note_count": 34,
+      "id": 7221129,
+      "key": "mc3fbb7be0052",
+      "title": "【創作活動】",
+      "description": "一次創作関連の記事をまとめています。",
+      "note_count": 50,
       "likes": 0,
       "is_default": false,
       "updated_at": null
     },
     {
-      "id": 7221129,
-      "key": "mc3fbb7be0052",
-      "title": "【創作活動】",
-      "description": "一次創作関連の記事をまとめています。",
-      "note_count": 49,
+      "id": 9988371,
+      "key": "m208424fa13e4",
+      "title": "【デジタルツール】",
+      "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
+      "note_count": 34,
       "likes": 0,
       "is_default": false,
       "updated_at": null
