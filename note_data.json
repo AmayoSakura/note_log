@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-10-10T12:29:23.815761+00:00",
+  "fetched_at": "2026-10-11T12:46:47.575039+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 89,
+    "followerCount": 90,
     "followingCount": 37,
-    "noteCount": 229,
+    "noteCount": 230,
     "magazineCount": 4
   },
   "notes": [
@@ -14,8 +14,18 @@
       "key": "ne4c3393718d8",
       "title": "【Webツール】ブラウザだけで本になる！無料組版ツール「言ノ葉Editer」",
       "published_at": "2026-08-15T13:54:07+09:00",
-      "likes": 22,
+      "likes": 23,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 184878515,
+      "key": "n79517d7d442f",
+      "title": "祝！100週連続投稿",
+      "published_at": "2026-10-11T08:23:47+09:00",
+      "likes": 2,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
@@ -1124,7 +1134,7 @@
       "key": "n05677ad93c3c",
       "title": "自己紹介兼noteマップ(2026/9/25更新)",
       "published_at": "2025-08-10T18:26:03+09:00",
-      "likes": 27,
+      "likes": 28,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
