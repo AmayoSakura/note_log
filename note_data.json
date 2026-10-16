@@ -1,10 +1,10 @@
 {
-  "fetched_at": "2026-10-15T11:26:07.218236+00:00",
+  "fetched_at": "2026-10-16T11:20:46.469226+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 90,
-    "followingCount": 39,
+    "followingCount": 40,
     "noteCount": 231,
     "magazineCount": 4
   },
@@ -24,7 +24,7 @@
       "key": "n6fcf536e32f5",
       "title": "最近のAI利用事情",
       "published_at": "2026-10-14T07:11:11+09:00",
-      "likes": 2,
+      "likes": 4,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -84,7 +84,7 @@
       "key": "n8ce7e49ecc53",
       "title": "万年筆のお迎え（チャレンジ編）",
       "published_at": "2026-09-23T16:03:20+09:00",
-      "likes": 29,
+      "likes": 30,
       "comments": 4,
       "price": 0,
       "type": "TextNote"
@@ -134,7 +134,7 @@
       "key": "n506b2d0070c8",
       "title": "2027年の手帳を買った（確定）",
       "published_at": "2026-09-06T08:59:31+09:00",
-      "likes": 32,
+      "likes": 33,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
