@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-10-17T10:40:57.629581+00:00",
+  "fetched_at": "2026-10-18T11:01:52.994054+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 90,
     "followingCount": 41,
-    "noteCount": 231,
+    "noteCount": 232,
     "magazineCount": 4
   },
   "notes": [
@@ -16,6 +16,16 @@
       "published_at": "2026-08-15T13:54:07+09:00",
       "likes": 24,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 185998889,
+      "key": "n8f952e27571e",
+      "title": "手持ちインクを並べる～赤・ピンク編～",
+      "published_at": "2026-10-18T10:57:38+09:00",
+      "likes": 4,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
@@ -2222,6 +2232,16 @@
   ],
   "magazines": [
     {
+      "id": 7735717,
+      "key": "m718db05db3b5",
+      "title": "【万年筆】",
+      "description": "万年筆の話まとめ。",
+      "note_count": 43,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
       "id": 9988371,
       "key": "m208424fa13e4",
       "title": "【デジタルツール】",
@@ -2237,16 +2257,6 @@
       "title": "【創作活動】",
       "description": "一次創作関連の記事をまとめています。",
       "note_count": 50,
-      "likes": 0,
-      "is_default": false,
-      "updated_at": null
-    },
-    {
-      "id": 7735717,
-      "key": "m718db05db3b5",
-      "title": "【万年筆】",
-      "description": "万年筆の話まとめ。",
-      "note_count": 42,
       "likes": 0,
       "is_default": false,
       "updated_at": null
