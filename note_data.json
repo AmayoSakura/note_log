@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-10-18T11:01:52.994054+00:00",
+  "fetched_at": "2026-10-19T13:09:28.352105+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 90,
+    "followerCount": 91,
     "followingCount": 41,
-    "noteCount": 232,
+    "noteCount": 233,
     "magazineCount": 4
   },
   "notes": [
@@ -20,11 +20,21 @@
       "type": "TextNote"
     },
     {
+      "id": 186422053,
+      "key": "n6d7272332025",
+      "title": "#ハロウィンアート2026 に参加してみたよ",
+      "published_at": "2026-10-19T20:21:56+09:00",
+      "likes": 5,
+      "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
       "id": 185998889,
       "key": "n8f952e27571e",
       "title": "手持ちインクを並べる～赤・ピンク編～",
       "published_at": "2026-10-18T10:57:38+09:00",
-      "likes": 4,
+      "likes": 7,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -44,7 +54,7 @@
       "key": "n79517d7d442f",
       "title": "祝！100週連続投稿",
       "published_at": "2026-10-11T08:23:47+09:00",
-      "likes": 5,
+      "likes": 6,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
