@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-10-19T13:09:28.352105+00:00",
+  "fetched_at": "2026-10-20T11:33:17.561942+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 91,
+    "followerCount": 92,
     "followingCount": 41,
     "noteCount": 233,
     "magazineCount": 4
@@ -14,7 +14,7 @@
       "key": "ne4c3393718d8",
       "title": "【Webツール】ブラウザだけで本になる！無料組版ツール「言ノ葉Editer」",
       "published_at": "2026-08-15T13:54:07+09:00",
-      "likes": 24,
+      "likes": 25,
       "comments": 2,
       "price": 0,
       "type": "TextNote"
@@ -24,8 +24,8 @@
       "key": "n6d7272332025",
       "title": "#ハロウィンアート2026 に参加してみたよ",
       "published_at": "2026-10-19T20:21:56+09:00",
-      "likes": 5,
-      "comments": 2,
+      "likes": 14,
+      "comments": 4,
       "price": 0,
       "type": "TextNote"
     },
@@ -34,7 +34,7 @@
       "key": "n8f952e27571e",
       "title": "手持ちインクを並べる～赤・ピンク編～",
       "published_at": "2026-10-18T10:57:38+09:00",
-      "likes": 7,
+      "likes": 9,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -2194,7 +2194,7 @@
       "key": "nb1447178e558",
       "title": "2020、年末。",
       "published_at": "2020-12-25T17:49:22+09:00",
-      "likes": 0,
+      "likes": 1,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
