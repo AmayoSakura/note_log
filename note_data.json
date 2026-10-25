@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-10-24T10:56:45.418685+00:00",
+  "fetched_at": "2026-10-25T11:23:27.629381+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 92,
     "followingCount": 41,
-    "noteCount": 233,
+    "noteCount": 234,
     "magazineCount": 4
   },
   "notes": [
@@ -20,12 +20,22 @@
       "type": "TextNote"
     },
     {
+      "id": 187304330,
+      "key": "n448188d525c0",
+      "title": "ご褒美をお迎えする。",
+      "published_at": "2026-10-25T08:26:32+09:00",
+      "likes": 2,
+      "comments": 0,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
       "id": 186422053,
       "key": "n6d7272332025",
       "title": "#ハロウィンアート2026 に参加してみたよ",
       "published_at": "2026-10-19T20:21:56+09:00",
-      "likes": 24,
-      "comments": 5,
+      "likes": 25,
+      "comments": 7,
       "price": 0,
       "type": "TextNote"
     },
@@ -2246,7 +2256,7 @@
       "key": "m718db05db3b5",
       "title": "【万年筆】",
       "description": "万年筆の話まとめ。",
-      "note_count": 43,
+      "note_count": 44,
       "likes": 0,
       "is_default": false,
       "updated_at": null
