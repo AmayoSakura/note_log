@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-10-25T11:23:27.629381+00:00",
+  "fetched_at": "2026-10-26T12:57:56.228049+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 92,
+    "followerCount": 93,
     "followingCount": 41,
     "noteCount": 234,
     "magazineCount": 4
@@ -24,7 +24,7 @@
       "key": "n448188d525c0",
       "title": "ご褒美をお迎えする。",
       "published_at": "2026-10-25T08:26:32+09:00",
-      "likes": 2,
+      "likes": 6,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -34,8 +34,8 @@
       "key": "n6d7272332025",
       "title": "#ハロウィンアート2026 に参加してみたよ",
       "published_at": "2026-10-19T20:21:56+09:00",
-      "likes": 25,
-      "comments": 7,
+      "likes": 27,
+      "comments": 8,
       "price": 0,
       "type": "TextNote"
     },
@@ -314,7 +314,7 @@
       "key": "n77985ffaeb5a",
       "title": "ソシャゲがしんどくなっていく",
       "published_at": "2026-07-12T12:00:50+09:00",
-      "likes": 24,
+      "likes": 25,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -664,7 +664,7 @@
       "key": "n14c28977ecc3",
       "title": "「Try＆Groove」がめちゃくちゃ良い",
       "published_at": "2026-02-15T12:54:42+09:00",
-      "likes": 7,
+      "likes": 8,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
