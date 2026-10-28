@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-10-27T12:08:16.123319+00:00",
+  "fetched_at": "2026-10-28T12:50:54.205302+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
-    "followerCount": 93,
+    "followerCount": 92,
     "followingCount": 41,
-    "noteCount": 234,
+    "noteCount": 235,
     "magazineCount": 4
   },
   "notes": [
@@ -20,11 +20,21 @@
       "type": "TextNote"
     },
     {
+      "id": 188035596,
+      "key": "n8674363a8a93",
+      "title": "万年筆を整理する",
+      "published_at": "2026-10-28T19:38:06+09:00",
+      "likes": 1,
+      "comments": 0,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
       "id": 187304330,
       "key": "n448188d525c0",
       "title": "ご褒美をお迎えする。",
       "published_at": "2026-10-25T08:26:32+09:00",
-      "likes": 8,
+      "likes": 9,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -2256,7 +2266,7 @@
       "key": "m718db05db3b5",
       "title": "【万年筆】",
       "description": "万年筆の話まとめ。",
-      "note_count": 44,
+      "note_count": 45,
       "likes": 0,
       "is_default": false,
       "updated_at": null
