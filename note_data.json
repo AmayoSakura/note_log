@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-10-31T12:23:05.046845+00:00",
+  "fetched_at": "2026-11-01T13:18:57.630474+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 93,
     "followingCount": 41,
-    "noteCount": 235,
+    "noteCount": 236,
     "magazineCount": 4
   },
   "notes": [
@@ -20,11 +20,21 @@
       "type": "TextNote"
     },
     {
+      "id": 188638453,
+      "key": "n0090a3fed375",
+      "title": "創作月報：2026/10",
+      "published_at": "2026-11-01T10:44:49+09:00",
+      "likes": 1,
+      "comments": 0,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
       "id": 188035596,
       "key": "n8674363a8a93",
       "title": "万年筆を整理する",
       "published_at": "2026-10-28T19:38:06+09:00",
-      "likes": 17,
+      "likes": 19,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -44,7 +54,7 @@
       "key": "n6d7272332025",
       "title": "#ハロウィンアート2026 に参加してみたよ",
       "published_at": "2026-10-19T20:21:56+09:00",
-      "likes": 31,
+      "likes": 32,
       "comments": 8,
       "price": 0,
       "type": "TextNote"
@@ -2262,6 +2272,16 @@
   ],
   "magazines": [
     {
+      "id": 7221129,
+      "key": "mc3fbb7be0052",
+      "title": "【創作活動】",
+      "description": "一次創作関連の記事をまとめています。",
+      "note_count": 51,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
       "id": 7735717,
       "key": "m718db05db3b5",
       "title": "【万年筆】",
@@ -2277,16 +2297,6 @@
       "title": "【デジタルツール】",
       "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
       "note_count": 35,
-      "likes": 0,
-      "is_default": false,
-      "updated_at": null
-    },
-    {
-      "id": 7221129,
-      "key": "mc3fbb7be0052",
-      "title": "【創作活動】",
-      "description": "一次創作関連の記事をまとめています。",
-      "note_count": 50,
       "likes": 0,
       "is_default": false,
       "updated_at": null
