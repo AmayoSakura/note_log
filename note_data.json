@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-11-03T14:09:12.345953+00:00",
+  "fetched_at": "2026-11-04T14:29:13.530857+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 93,
     "followingCount": 41,
-    "noteCount": 236,
+    "noteCount": 237,
     "magazineCount": 4
   },
   "notes": [
@@ -16,6 +16,16 @@
       "published_at": "2026-08-15T13:54:07+09:00",
       "likes": 26,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 189002444,
+      "key": "n5884e138061c",
+      "title": "創作傾向千本ノック！～第１セット～",
+      "published_at": "2026-11-04T06:52:17+09:00",
+      "likes": 1,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
@@ -34,7 +44,7 @@
       "key": "n8674363a8a93",
       "title": "万年筆を整理する",
       "published_at": "2026-10-28T19:38:06+09:00",
-      "likes": 20,
+      "likes": 21,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -164,7 +174,7 @@
       "key": "n741e8d5df818",
       "title": "創作大賞中間選考通ってた",
       "published_at": "2026-09-10T19:22:57+09:00",
-      "likes": 27,
+      "likes": 26,
       "comments": 4,
       "price": 0,
       "type": "TextNote"
@@ -2276,7 +2286,7 @@
       "key": "mc3fbb7be0052",
       "title": "【創作活動】",
       "description": "一次創作関連の記事をまとめています。",
-      "note_count": 51,
+      "note_count": 52,
       "likes": 0,
       "is_default": false,
       "updated_at": null
