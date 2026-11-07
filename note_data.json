@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06T14:14:00.273983+00:00",
+  "fetched_at": "2026-11-07T12:57:29.051023+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
@@ -44,7 +44,7 @@
       "key": "n8674363a8a93",
       "title": "万年筆を整理する",
       "published_at": "2026-10-28T19:38:06+09:00",
-      "likes": 21,
+      "likes": 22,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -54,7 +54,7 @@
       "key": "n448188d525c0",
       "title": "ご褒美をお迎えする。",
       "published_at": "2026-10-25T08:26:32+09:00",
-      "likes": 10,
+      "likes": 11,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -2282,6 +2282,16 @@
   ],
   "magazines": [
     {
+      "id": 7221163,
+      "key": "m391a6a9d1fe5",
+      "title": "【買ったもの】",
+      "description": "ガジェットをメインとした買い物記録。",
+      "note_count": 26,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
       "id": 7221129,
       "key": "mc3fbb7be0052",
       "title": "【創作活動】",
@@ -2307,16 +2317,6 @@
       "title": "【デジタルツール】",
       "description": "IT職ではない人間がフロントエンドと戦ってたりobsidianやAIを好きなように使ってたりする記録。",
       "note_count": 35,
-      "likes": 0,
-      "is_default": false,
-      "updated_at": null
-    },
-    {
-      "id": 7221163,
-      "key": "m391a6a9d1fe5",
-      "title": "【買ったもの】",
-      "description": "ガジェットをメインとした買い物記録。",
-      "note_count": 23,
       "likes": 0,
       "is_default": false,
       "updated_at": null
