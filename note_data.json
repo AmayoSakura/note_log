@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-11-07T12:57:29.051023+00:00",
+  "fetched_at": "2026-11-08T13:20:41.571699+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 94,
     "followingCount": 41,
-    "noteCount": 237,
+    "noteCount": 238,
     "magazineCount": 4
   },
   "notes": [
@@ -16,6 +16,16 @@
       "published_at": "2026-08-15T13:54:07+09:00",
       "likes": 26,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 189751063,
+      "key": "nb985176adc9f",
+      "title": "創作大賞2026によせて",
+      "published_at": "2026-11-08T08:09:44+09:00",
+      "likes": 4,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
