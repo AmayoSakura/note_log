@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-11-14T13:28:56.078805+00:00",
+  "fetched_at": "2026-11-15T13:54:37.730763+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 95,
     "followingCount": 41,
-    "noteCount": 239,
+    "noteCount": 240,
     "magazineCount": 4
   },
   "notes": [
@@ -16,6 +16,16 @@
       "published_at": "2026-08-15T13:54:07+09:00",
       "likes": 28,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 190672372,
+      "key": "n9e308f727797",
+      "title": "続：最近の体調について",
+      "published_at": "2026-11-15T07:46:18+09:00",
+      "likes": 2,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
@@ -664,7 +674,7 @@
       "key": "n18933a482721",
       "title": "手帳を増やすことにした",
       "published_at": "2026-03-08T21:43:05+09:00",
-      "likes": 15,
+      "likes": 14,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
