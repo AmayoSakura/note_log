@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-11-21T14:37:20.805668+00:00",
+  "fetched_at": "2026-11-22T14:31:46.819516+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 96,
     "followingCount": 42,
-    "noteCount": 241,
+    "noteCount": 242,
     "magazineCount": 4
   },
   "notes": [
@@ -16,6 +16,16 @@
       "published_at": "2026-08-15T13:54:07+09:00",
       "likes": 29,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 192095246,
+      "key": "n1001009faa4a",
+      "title": "職場用の1本に。",
+      "published_at": "2026-11-22T09:26:06+09:00",
+      "likes": 5,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
@@ -1584,7 +1594,7 @@
       "key": "n0a619f01acf6",
       "title": "うっかり増えた",
       "published_at": "2025-04-13T09:35:15+09:00",
-      "likes": 6,
+      "likes": 7,
       "comments": 0,
       "price": 0,
       "type": "TextNote"
@@ -2312,6 +2322,16 @@
   ],
   "magazines": [
     {
+      "id": 7735717,
+      "key": "m718db05db3b5",
+      "title": "【万年筆】",
+      "description": "万年筆の話まとめ。",
+      "note_count": 46,
+      "likes": 0,
+      "is_default": false,
+      "updated_at": null
+    },
+    {
       "id": 9988371,
       "key": "m208424fa13e4",
       "title": "【デジタルツール】",
@@ -2337,16 +2357,6 @@
       "title": "【創作活動】",
       "description": "一次創作関連の記事をまとめています。",
       "note_count": 52,
-      "likes": 0,
-      "is_default": false,
-      "updated_at": null
-    },
-    {
-      "id": 7735717,
-      "key": "m718db05db3b5",
-      "title": "【万年筆】",
-      "description": "万年筆の話まとめ。",
-      "note_count": 45,
       "likes": 0,
       "is_default": false,
       "updated_at": null
