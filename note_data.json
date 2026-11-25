@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-11-24T17:39:33.742790+00:00",
+  "fetched_at": "2026-11-25T17:10:52.269784+00:00",
   "creator": {
     "nickname": "桜星雨夜",
     "urlname": "squallxxx",
     "followerCount": 96,
     "followingCount": 42,
-    "noteCount": 242,
+    "noteCount": 243,
     "magazineCount": 4
   },
   "notes": [
@@ -14,8 +14,18 @@
       "key": "ne4c3393718d8",
       "title": "【Webツール】ブラウザだけで本になる！無料組版ツール「言ノ葉Editer」",
       "published_at": "2026-08-15T13:54:07+09:00",
-      "likes": 29,
+      "likes": 30,
       "comments": 2,
+      "price": 0,
+      "type": "TextNote"
+    },
+    {
+      "id": 193013811,
+      "key": "n078a67cb3489",
+      "title": "2026年に出会った楽曲のこと",
+      "published_at": "2026-11-25T06:53:54+09:00",
+      "likes": 0,
+      "comments": 0,
       "price": 0,
       "type": "TextNote"
     },
@@ -34,7 +44,7 @@
       "key": "n9e308f727797",
       "title": "続：最近の体調について",
       "published_at": "2026-11-15T07:46:18+09:00",
-      "likes": 5,
+      "likes": 6,
       "comments": 2,
       "price": 0,
       "type": "TextNote"
